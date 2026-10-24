@@ -1,0 +1,4 @@
+# Die Seiten tragen derzeit "noindex", weil der Restaurantbetrieb fiktiv ist.
+# Zum Freischalten: noindex-Meta-Tag in src/*.html entfernen und neu bauen.
+User-agent: *
+Allow: /

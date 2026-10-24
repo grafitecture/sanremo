@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#DB042C">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<script>
+  /* Sprache vor dem ersten Rendern setzen (kein Aufblitzen): ?lang= > gespeicherte Wahl > Browsersprache > Deutsch */
+  (function () {
+    var L = ['de', 'en', 'it'], l = 'de', d = document.documentElement;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      var s = localStorage.getItem('sr-lang');
+      var n = (navigator.language || 'de').slice(0, 2).toLowerCase();
+      l = L.indexOf(q) > -1 ? q : L.indexOf(s) > -1 ? s : L.indexOf(n) > -1 ? n : 'de';
+    } catch (e) {}
+    d.lang = l; d.setAttribute('data-lang', l);
+    if (l !== 'de') { d.classList.add('i18n-pending'); setTimeout(function () { d.classList.remove('i18n-pending'); }, 1800); }
+  })();
+</script>
+<link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{asset:/assets/css/main.css}}">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">

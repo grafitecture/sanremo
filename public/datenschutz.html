@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#DB042C">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<script>
+  /* Sprache vor dem ersten Rendern setzen (kein Aufblitzen): ?lang= > gespeicherte Wahl > Browsersprache > Deutsch */
+  (function () {
+    var L = ['de', 'en', 'it'], l = 'de', d = document.documentElement;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      var s = localStorage.getItem('sr-lang');
+      var n = (navigator.language || 'de').slice(0, 2).toLowerCase();
+      l = L.indexOf(q) > -1 ? q : L.indexOf(s) > -1 ? s : L.indexOf(n) > -1 ? n : 'de';
+    } catch (e) {}
+    d.lang = l; d.setAttribute('data-lang', l);
+    if (l !== 'de') { d.classList.add('i18n-pending'); setTimeout(function () { d.classList.remove('i18n-pending'); }, 1800); }
+  })();
+</script>
+<link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css?v=249ee95575">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<title data-i18n="legal.privacyTitle">Datenschutz | San Remo Mannheim</title>
+<meta name="description" content="Datenschutzerklärung der Website sanremo.ma – Hosting bei Vercel, Reservierung per E-Mail, Karte nur nach Einwilligung.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://sanremo.ma/datenschutz">
+</head>
+<body class="page page--legal">
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="logo" viewBox="0 0 2082 486"><path fill-rule="evenodd" d="M922.49 480.71C912.42 481.78 904.54 473.95 906.84 463.68C907.72 459.79 909.97 456.29 911.98 452.91C922.98 434.44 933.69 415.77 945.1 397.56C947.76 393.32 951.04 389.52 953.73 385.3C959.11 376.86 963.9 368.08 969.63 359.86C979.07 346.35 987.59 332.13 997.29 318.81C1000.23 314.76 1007.97 305.97 1007.43 300.86C1006.84 295.36 999.23 296.98 995.54 296.79C983.81 296.2 969.75 286.48 978.11 273.5C988.52 257.33 1024.36 263.1 1037.85 256.19C1044.49 252.79 1048.32 244.24 1052.28 238.29C1060.12 226.48 1068.64 214.89 1076.94 203.38C1090.09 185.15 1103.01 166.71 1116.29 148.56C1124.26 137.66 1132.68 127.1 1140.41 116.02C1147.09 106.44 1156.93 89.17 1171.13 96.02C1187.33 103.83 1175.62 119.23 1168.89 128.73C1149.07 156.67 1128.6 184.13 1108.37 211.77C1102.31 220.06 1096.11 228.18 1090.28 236.64C1088.35 239.43 1085.76 244.66 1090.18 246.68C1094.68 248.74 1103.17 245.52 1107.72 244.3C1113.53 242.74 1118.98 240.22 1124.66 238.27C1134.36 234.94 1144.16 232.02 1153.8 228.48C1209.47 208 1287.64 173.55 1332.73 135.39C1355.87 115.81 1384.31 82.73 1353.29 55.63C1332.62 37.57 1286.72 37.74 1260.55 38.82C1253.28 39.12 1246.15 40.25 1238.92 40.96C1162.18 48.53 1083.46 73.63 1014.49 107.94C1002.23 114.04 963.12 132.99 955.69 142.2C949.75 149.56 964.81 158.31 952.89 167.82C943.06 175.66 918.92 174.51 912.1 163.07C903.59 148.8 916.49 134.83 927.1 126.54C953.89 105.61 982.48 88.35 1013.3 73.96C1093.75 36.4 1180.18 8.27 1269.52 6.35C1306.44 5.55 1351.7 8.28 1379.18 36.72C1413.35 72.08 1397 117.78 1365.12 147.56C1310.63 198.47 1223.11 236.78 1153.12 261.63C1131.28 269.39 1108.83 276.25 1085.95 280.15C1081.32 280.94 1065.36 282.16 1064.44 287.68C1063.54 293.07 1073.77 297.5 1077.42 299.74C1091.86 308.58 1105.77 318.65 1119.7 328.26C1153.51 351.57 1187.65 374.04 1223.07 394.84C1238.18 403.72 1253.07 412.79 1268.87 420.45C1274.72 423.29 1280.3 426.65 1286.17 429.46C1296.78 434.54 1319.87 442.37 1321.18 455.94C1322.17 466.19 1311.54 472.38 1302.47 470.44C1288.12 467.37 1262.58 452.95 1248.59 445.97C1237.45 440.41 1226.89 433.45 1216.17 427.14C1192.25 413.07 1168.35 398.96 1145.16 383.7C1130.75 374.22 1116.96 363.83 1102.55 354.34C1088.97 345.41 1075.74 335.97 1062.23 326.94C1056.35 323.02 1049.36 316.65 1042.38 315.01C1037.07 313.76 1034 318.24 1031.46 322.11C1024.73 332.34 1017.97 342.56 1011.3 352.82C990.45 384.88 969.61 416.92 949.3 449.36C943.2 459.09 935.18 479.35 922.49 480.71ZM126.25 464.26C90.51 465.9 27.68 462.2 10.33 424.92C-6.26 389.29 35.57 354.71 65.24 343.33C74.52 339.78 85.59 334.99 95.7 337.28C108.39 340.15 108.89 355.48 98.84 362.2C93.83 365.54 87.68 366.63 82.07 368.56C66.27 374.01 17.38 401.67 47.27 420.26C68.6 433.52 110.34 435.39 135.11 433.18C200.12 427.37 258.64 410.22 317.47 382.11C336.04 373.24 376.56 351.06 388.01 334.8C392 329.14 395.2 322.47 395.03 315.4C394.64 299.48 377.44 295.93 365.12 292.04C357.24 289.56 349.47 286.85 341.46 284.78C296.79 273.22 249.37 272.22 205.88 256.15C183.03 247.71 162.47 234.19 162.97 206.89C163.58 173.37 202.03 143.35 227.52 126.76C277.98 93.93 348.69 72.17 407.68 61.51C434.15 56.73 470.81 52.08 497.18 57.78C502.73 58.98 508.11 61.65 513.17 64.15C533.29 74.12 537.89 94.95 524.15 112.92C517.55 121.56 508.09 128.27 498.98 134.03C490.08 139.66 476.39 149.61 465.37 145.69C456.88 142.67 454.73 132.42 459.6 125.31C465.61 116.53 481.58 110.59 490.56 104.55C495.23 101.42 500.37 94.64 492.84 91.13C485.84 87.86 476.65 88.63 469.13 88.63C451.54 88.62 434.22 89.59 416.84 92.42C363.59 101.12 295 122.11 248.98 150.32C231.13 161.26 210.01 172.81 199.28 191.61C181.4 222.95 225.56 231.59 246.71 235.46C291.49 243.65 341.98 248.63 384.35 265.04C404.83 272.97 426.04 286.66 427.3 310.85C429.1 345.61 389.81 377.07 362.83 392.61C288.96 435.16 211.61 460.32 126.25 464.26ZM455.75 430.72C426.85 431.96 416.35 404.45 420.6 380.01C421.91 372.53 425.14 364.99 428.49 358.2C453.89 306.7 506.53 265.09 560.14 245.9C574.52 240.75 604.65 229.46 618.96 236.97C628.98 242.22 628.23 257.45 618.5 262.68C612.64 265.83 591.67 269.03 583.61 271.18C577.38 272.84 571.11 274.91 565.03 277.07C533.69 288.21 497.15 314.48 475.64 339.78C465.58 351.62 456.98 364.8 453.23 380.01C452.11 384.55 449.25 392.62 453.34 396.39C462.25 404.6 489.37 385.89 496.93 380.3C518.63 364.27 556.59 329.62 574.04 309.27C581.7 300.33 592.68 282.78 606.64 286.71C614.84 289.01 618.41 299.33 616.16 306.89C611.3 323.29 597.31 338.18 591.7 361.46C590.15 367.89 584.33 384.38 593.96 387.12C604.14 390 619.25 376.94 626.59 370.96C653.22 349.25 677 323.5 698.89 297.11C705.56 289.05 717.93 267.39 729.21 267.9C738.71 268.33 744.35 277.31 743.45 286.27C742.56 295.06 729.8 317.29 724.73 325.34C723.32 327.58 715.61 343.13 723.36 341.88C726.54 341.37 742.53 324.47 745.62 321.11C762.28 303.04 785.03 279.71 807.31 269.35C818.41 264.18 832.21 260.7 842.57 269.63C852.01 277.76 851.7 290.58 848.65 301.55C842.58 323.42 828.43 342.44 819.67 363.24C817.1 369.35 807.93 391.49 813.47 396.56C819.15 401.77 836.42 393.88 842.34 390.86C862.59 380.54 880.4 365.69 897.17 350.54C901.6 346.54 905.42 341.73 910.18 338.12C920.61 330.2 936.3 335.99 935.16 350.26C934.35 360.35 917.35 372.96 909.94 379.82C889.72 398.53 865.77 415.5 839.86 425.25C827.48 429.91 810.2 431.71 798.29 424.77C767.22 406.67 784.87 364.6 797.27 340.31C801.37 332.29 805.57 324.35 809.56 316.28C810.74 313.9 813.65 309.13 810.35 307.13C807.24 305.25 802.87 308.93 800.51 310.67C792.5 316.58 784.68 323.03 777.8 330.23C773.32 334.93 768.35 339.16 763.88 343.88C758.73 349.33 754.13 355.3 748.93 360.67C742.3 367.51 735.24 373.79 729.01 381.03C720.07 391.44 705.39 409.2 692.27 413.39C675.38 418.8 664.34 406.44 669.02 389.97C669.84 387.08 675.1 374.51 668.79 374.71C663.26 374.89 651.7 388.75 647.06 392.55C629.95 406.57 605.9 425.26 582.16 419.97C570.66 417.41 560.86 408.24 558.37 396.6C557.41 392.14 558.43 376.92 552.35 376.9C546.44 376.87 528.58 394.09 523.03 398.38C504.63 412.59 479.6 429.71 455.75 430.72ZM1873 439.23C1855.15 440.49 1836.1 433.96 1825.48 418.97C1819.44 410.44 1817.38 398.53 1813.62 393.22C1812.62 391.81 1811.16 390.83 1809.4 390.81C1803.94 390.75 1791.96 403.22 1787.19 406.79C1766.88 422.02 1724.88 446.43 1703.77 420.33C1686.95 399.53 1702.04 367.36 1711.37 346.58C1714.95 338.62 1718.55 330.61 1722.25 322.69C1723.32 320.4 1726.09 315.19 1722.26 313.85C1719.13 312.76 1715.54 316.39 1713.26 318.06C1705.41 323.8 1697.57 329.74 1691.08 337.04C1682.42 346.79 1673.06 355.74 1664.04 365.12C1660.56 368.73 1657.72 372.87 1654.3 376.52C1646.37 384.99 1637.29 392.99 1628.16 400.15C1619.18 407.21 1604.95 414.82 1593.73 408.12C1568.57 393.09 1595.6 350.29 1604.38 331.65C1606.34 327.49 1618.95 306.24 1610.7 305.08C1603.05 304.02 1584.06 324.3 1578.7 329.89C1565.77 343.36 1552.07 356.44 1539.83 370.54C1529.14 382.87 1513.38 402.36 1500.5 411.71C1489.05 420.02 1471.86 418.47 1468.08 403.08C1466.27 395.72 1469.16 388.83 1471.62 382.02C1472.7 379.02 1474.88 370.98 1468.79 372.14C1464.4 372.96 1460.14 378.08 1456.67 380.7C1447.87 387.35 1439 393.73 1429.75 399.76C1394.12 422.96 1334.96 445.92 1296.25 418.31C1271.57 400.71 1270.26 371.43 1280.62 345.36C1296.4 305.68 1335.41 268.07 1374.49 251.41C1395.2 242.58 1430.42 233.51 1445.84 256.23C1457.24 273.03 1448.31 288.53 1437.69 302.46C1422.32 322.62 1405.48 334.61 1383.31 346.19C1373.47 351.32 1363.73 356.08 1352.81 358.47C1344.61 360.26 1313.06 362.45 1309.19 364.73C1297.82 371.44 1307.44 390.77 1316.33 395.25C1333.6 403.94 1356.17 398.2 1373.51 392.82C1417.8 379.07 1464.19 336.6 1494.97 302.55C1504.35 292.18 1528.23 258.03 1540.73 256.24C1549.45 254.99 1558.69 264.57 1557.16 273.21C1554.98 285.54 1541.61 305.35 1534.94 316.41C1533.35 319.04 1525.92 331.75 1530.95 333.42C1534.57 334.62 1550.75 315.82 1554.26 312.48C1572.07 295.53 1589.27 275.69 1611.77 264.87C1624.32 258.84 1634.69 254.54 1645.9 265.85C1662.3 282.41 1643.53 312.61 1637.27 329.82C1635.88 333.65 1626.2 350.84 1630.62 352.26C1633.76 353.27 1637.07 349.01 1639.02 347.16C1645.74 340.81 1652.57 334.55 1659.11 328.02C1677.88 309.24 1698.42 286.43 1722.05 273.95C1731.64 268.88 1744.21 263.25 1754.74 268.91C1765.04 274.45 1768.22 287.5 1765.66 298.28C1764.14 304.68 1760.92 310.33 1758.33 316.31C1755.84 322.04 1753.88 328 1751.28 333.68C1746.4 344.38 1740.96 354.79 1736.19 365.54C1733.37 371.91 1721.87 397.05 1732.37 400.14C1738.56 401.96 1746.07 397.16 1751.28 394.36C1766.69 386.1 1779.28 374.72 1792.09 362.91C1803.08 352.79 1814.44 341.58 1823.51 329.69C1828.2 323.55 1832.18 316.8 1836.41 310.34C1848.72 291.56 1861.84 277.67 1879.8 264.26C1889.76 256.83 1899.85 250.41 1911.58 246.12C1926.83 240.53 1950.99 234.34 1966.51 241.28C1974.58 244.89 1982.4 252.31 1980.02 261.88C1979.12 265.5 1973.47 270.88 1975.39 274.57C1977.12 277.93 1982.92 278.99 1985.7 281.56C1994.06 289.31 1997.32 299.65 1995.2 310.73C1993.2 321.22 1988.33 331.2 1984.03 340.91C1982.43 344.53 1979.66 349.84 1982.56 353.52C1987.12 359.31 1999.64 355.28 2005.44 353.77C2011.92 352.09 2017.28 348.85 2023.41 346.38C2029.9 343.77 2036.66 341.8 2043.11 339.09C2046.5 337.66 2049.57 335.03 2053.23 334.38C2061.04 333 2070.06 334.99 2074.27 342.23C2076.16 345.47 2076.88 349.34 2076.21 353.03C2074.03 364.96 2060.52 367.64 2050.85 371.16C2045.9 372.95 2041.12 375.08 2036.23 377.02C2020.66 383.2 2004.13 387.09 1987.32 387.12C1980.41 387.14 1964.31 382.87 1959.18 385.09C1951.87 388.25 1944.81 400.07 1938.58 405.63C1920.3 421.92 1898.22 437.45 1873 439.23ZM1872.08 408.97C1889.54 406.88 1906.5 394 1919.3 382.62C1923.43 378.95 1930.31 372.16 1930.66 366.33C1931.21 357.15 1916.29 339.07 1921.56 317.02C1924.11 306.35 1929.69 297.18 1937.92 289.86C1941.95 286.28 1950.04 283.15 1951.99 277.82C1953.8 272.87 1946.65 271.94 1943.44 271.92C1902.46 271.63 1862.21 316.66 1849.54 352.63C1843.6 369.49 1838.93 393.15 1856.54 404.77C1861.24 407.87 1866.43 409.64 1872.08 408.97ZM1332.87 333.96C1353.05 331.54 1386.02 312.82 1400.94 299.1C1405.41 295 1418.86 284 1414.24 276.96C1410.3 270.95 1396.29 274.83 1390.93 276.79C1370.26 284.32 1351.44 299.93 1335.83 315.11C1331.54 319.28 1315.82 336.01 1332.87 333.96ZM1955.42 327.85C1959.49 326.89 1962.52 314.98 1957.49 316.18C1953.5 317.13 1950.32 329.05 1955.42 327.85Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5.5a3 3 0 0 0 6 0V3M9 3v5M9 11.5V21M17.5 21V3c-2 1.4-3 4-3 7v3h3"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.6l2.7.4 1.3 3.7-1.9 1.5a12.6 12.6 0 0 0 6.1 6.1l1.5-1.9 3.7 1.3.4 2.7a2.3 2.3 0 0 1-2.2 2.2A16.9 16.9 0 0 1 4.4 5.8a2.3 2.3 0 0 1 2.2-2.2z"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 20h14"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3.8 6.8L12 13l8.2-6.2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11.5" height="11.5" rx="1.5"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 8.5H17V5h-2.5C12.3 5 10.5 6.8 10.5 9v2H8v3.5h2.5V21H14v-6.5h2.6l.4-3.5h-3V9c0-.3.2-.5.5-.5z"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.5 2.6 2.4 4.5 5 5"/></symbol>
+  <symbol id="i-chili" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 20c6 0 11-5 11-11 0-1.4-.9-2.4-2.3-2.4-1.3 0-2 .9-2.5 2.4-1 3.4-4.1 6.5-7.6 8-1.6.7-1.2 3 1.4 3z"/><path d="M15.9 6.6c0-1.7.8-3 2.4-3.6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l8.5-8.5M16 7l2.5 2.5M14 9l2 2"/></symbol>
+  <symbol id="i-tram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="12" rx="2"/><path d="M5.5 12.5h13M9 17.5L7 21M15 17.5l2 3.5M9 3h6M12 3v2.5"/><circle cx="9" cy="15" r=".6" fill="currentColor"/><circle cx="15" cy="15" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5v-4l2-5h12l2 5v4M4 16.5h16M4 16.5V19M20 16.5V19M4 12.5h16"/><circle cx="7.5" cy="14.5" r=".7" fill="currentColor"/><circle cx="16.5" cy="14.5" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h5l3 7M10 9L8.5 6.5H7M12.5 16L15 9"/></symbol>
+  <symbol id="t-antipasti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 14c0-4 3.8-7 8.5-7s8.5 3 8.5 7c0 3.3-3.8 4-8.5 4s-8.5-.7-8.5-4z"/><path d="M8.4 10.6l1.3 2.3M12 9.6l1.3 2.3M15.6 10.6l1.3 2.3"/></symbol>
+  <symbol id="t-insalate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5h18a9 9 0 0 1-18 0z"/><path d="M8 12.5c-.6-3 .9-5.6 4-6.6M12.5 12.5c0-3 1.6-5.1 4.6-5.6M11 6.3c1.4 0 2.5 1 2.6 2.5"/></symbol>
+  <symbol id="t-pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21L3.5 5.6c5.3-2.8 11.7-2.8 17 0z"/><path d="M5.1 8.4c4.5-2 9.3-2 13.8 0"/><circle cx="10" cy="10.6" r="1.1"/><circle cx="14.2" cy="12.4" r="1.1"/><circle cx="11.8" cy="15.8" r=".9"/></symbol>
+  <symbol id="t-pasta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v5a4 4 0 0 0 8 0V3M12 3v5M12 12v9"/><path d="M5.5 14c2.2 1.3 4.3 1.3 6.5 0s4.3-1.3 6.5 0M5.5 17.2c2.2 1.3 4.3 1.3 6.5 0s4.3-1.3 6.5 0"/></symbol>
+  <symbol id="t-dolci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V12.5L19.5 7v12z"/><path d="M4 15.2l15.5-4.4M2.8 19h18.4"/><circle cx="16.6" cy="4.6" r="1.3"/></symbol>
+  <symbol id="t-bevande" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10c0 5-2.1 8.6-5 8.6S7 8 7 3z"/><path d="M7.5 6.6h9M12 11.6V20.5M8.2 20.7h7.6"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="15" rx="2.5"/><path d="M4.5 11h15M4.5 7h15M7.5 18.5V21M16.5 18.5V21"/><circle cx="8" cy="14.8" r=".7" fill="currentColor"/><circle cx="16" cy="14.8" r=".7" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Zum Inhalt springen</a>
+<header class="site-header" data-header>
+  <a class="brand" href="/#top" data-i18n-attr="aria-label:a11y.home" aria-label="San Remo, zur Startseite">
+    <svg class="brand__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+  </a>
+  <nav class="nav" data-i18n-attr="aria-label:a11y.mainnav" aria-label="Hauptnavigation">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="/#karte" data-nav="karte" data-i18n="nav.menu">Speisekarte</a></li>
+      <li><a class="nav__link" href="/#ambiente" data-nav="ambiente" data-i18n="nav.ambiente">Ambiente</a></li>
+      <li><a class="nav__link nav__link--rent" href="/#vermietung" data-nav="vermietung" data-i18n="nav.rent">Vermietung</a></li>
+      <li><a class="nav__link" href="/#reservieren" data-nav="reservieren" data-i18n="nav.book">Reservieren</a></li>
+      <li><a class="nav__link" href="/#kontakt" data-nav="kontakt" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a class="nav__link" href="/#anfahrt" data-nav="anfahrt" data-i18n="nav.directions">Anfahrt</a></li>
+    </ul>
+  </nav>
+  <div class="header__tools">
+    <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
+      <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true" title="Deutsch">DE</button>
+      <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+      <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false" title="Italiano">IT</button>
+    </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-overlay" data-burger>
+      <svg class="icon" aria-hidden="true"><use href="#i-burger"/></svg>
+      <span class="sr-only" data-i18n="a11y.openmenu">Menü öffnen</span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="menu-overlay" data-overlay hidden>
+  <div class="overlay__top">
+    <svg class="overlay__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+    <button class="overlay__close" type="button" data-overlay-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      <span class="sr-only" data-i18n="a11y.closemenu">Menü schließen</span>
+    </button>
+  </div>
+  <nav class="overlay__nav" data-i18n-attr="aria-label:a11y.mainnav" aria-label="Hauptnavigation">
+    <a href="/#karte" data-i18n="nav.menu">Speisekarte</a>
+    <a href="/#ambiente" data-i18n="nav.ambiente">Ambiente</a>
+    <a href="/#vermietung" data-i18n="nav.rent">Vermietung</a>
+    <a href="/#reservieren" data-i18n="nav.book">Reservieren</a>
+    <a href="/#kontakt" data-i18n="nav.contact">Kontakt</a>
+    <a href="/#anfahrt" data-i18n="nav.directions">Anfahrt</a>
+  </nav>
+  <div class="overlay__foot">
+    <p class="hand" lang="it">Ristorante a Mannheim dal 1977</p>
+    <p class="overlay__meta"><span data-i18n="info.hours">Do, Fr &amp; Sa ab 18 Uhr</span><br><a href="tel:+4962143744258">0621 43744258</a></p>
+    <div class="lang lang--overlay" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
+      <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true">Deutsch</button>
+      <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+      <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false">Italiano</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <article class="legal">
+
+    <!-- ============================== DEUTSCH ============================== -->
+    <div data-lang-block="de" lang="de">
+      <h1 class="legal__title">Datenschutzerklärung</h1>
+      <p class="legal__stand hand">www.sanremo.ma, Stand: 24. Oktober 2026</p>
+
+      <h2>1. Verantwortliche und Kontakt</h2>
+      <address>Schweppe &amp; Schweppe KG<br>Rennershofstraße 7, 68163 Mannheim, Deutschland<br>Vertreten durch den persönlich haftenden Gesellschafter Eric Schweppe<br>Telefon: <a href="tel:+4962143744258">+49 (0)621 43744258</a> · E-Mail: <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a></address>
+      <p>Unter diesen Kontaktdaten erreichen Sie uns auch bei Fragen zum Datenschutz und zur Ausübung Ihrer Rechte.</p>
+
+      <h2>2. Geltungsbereich</h2>
+      <p>Diese Hinweise erläutern, welche personenbezogenen Daten beim Besuch der Website sanremo.ma verarbeitet werden, bei der Nutzung der Reservierungs- und Kontaktfunktion sowie bei einer Kontaktaufnahme per E-Mail oder Telefon. Die Website stellt das Restaurantkonzept „San Remo“ dar und dient zur reinen Darstellung.</p>
+
+      <h2>3. Hosting und Bereitstellung durch Vercel</h2>
+      <p>Diese Website wird bei der Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA, gehostet und über deren weltweites Servernetz (Content Delivery Network) ausgeliefert.</p>
+      <p>Beim Aufruf der Website werden technisch erforderliche Verbindungsdaten verarbeitet, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Adresse, die zuvor besuchte Seite (Referrer), Angaben zu Browser und Betriebssystem sowie der Statuscode und die übertragene Datenmenge. Diese Daten werden benötigt, um Ihnen die Website anzuzeigen und ihren sicheren, stabilen Betrieb zu gewährleisten, etwa zur Erkennung und Abwehr von Angriffen.</p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der zuverlässigen und sicheren Bereitstellung unseres Internetauftritts. Vercel verarbeitet die Daten in unserem Auftrag auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
+      <p>Dabei können Daten auch auf Servern außerhalb der Europäischen Union verarbeitet werden, insbesondere in den USA. Vercel Inc. ist nach dem EU-U.S. Data Privacy Framework zertifiziert; die Übermittlung erfolgt auf Grundlage des Angemessenheitsbeschlusses der Europäischen Kommission (Art. 45 DSGVO). Ergänzend hat Vercel Standardvertragsklauseln der EU-Kommission vereinbart (Art. 46 Abs. 2 lit. c DSGVO).</p>
+      <p>Die Verbindungsdaten werden nur so lange gespeichert, wie es für die genannten Zwecke erforderlich ist. Analyse- oder Statistikdienste von Vercel (etwa Vercel Analytics oder Speed Insights) setzen wir nicht ein. Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+
+      <h2>4. Reservierung und Kontaktformular</h2>
+      <p>Die Reservierungs- und Kontaktfunktion auf dieser Website überträgt keine Daten an unsere Server. Wenn Sie auf „Jetzt als E-Mail versenden“ oder „Nachricht als E-Mail senden“ klicken, bereitet Ihr Browser aus Ihren Eingaben eine E-Mail in Ihrem eigenen E-Mail-Programm vor. Ihre Angaben erreichen uns erst, wenn Sie diese E-Mail selbst absenden. Bis dahin bleiben sie ausschließlich auf Ihrem Gerät.</p>
+      <p>Mit der E-Mail erhalten wir die von Ihnen gemachten Angaben, insbesondere Name, Telefonnummer, E-Mail-Adresse, gewünschten Tag, Uhrzeit und Personenzahl, Ihr Anliegen und Ihre Nachricht. Wir verarbeiten sie, um Ihre Reservierung oder Anfrage zu bearbeiten und zu beantworten. Rechtsgrundlage ist bei Reservierungen und vorvertraglichen Anfragen Art. 6 Abs. 1 lit. b DSGVO, bei allgemeinen Anfragen Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist die sachgerechte Kommunikation mit Gästen, Interessierten und Geschäftskontakten.</p>
+      <p>Wenn Sie uns freiwillig Angaben zu Allergien oder Unverträglichkeiten machen, verarbeiten wir diese ausschließlich, um Ihren Besuch entsprechend vorzubereiten. Rechtsgrundlage ist dann Ihre ausdrückliche Einwilligung (Art. 9 Abs. 2 lit. a DSGVO), die Sie jederzeit mit Wirkung für die Zukunft widerrufen können.</p>
+      <p>Für den Versand der E-Mail gilt die Datenschutzerklärung Ihres eigenen E-Mail-Anbieters. Reservierungsanfragen löschen wir, sobald der Termin vorüber ist und keine weitere Korrespondenz erforderlich ist, sonstige Anfragen nach abschließender Erledigung, soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.</p>
+
+      <h2>5. Kontakt per E-Mail oder Telefon</h2>
+      <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Angaben, insbesondere Ihren Namen, Ihre E-Mail-Adresse oder Telefonnummer, den Inhalt Ihrer Nachricht sowie gegebenenfalls beigefügte Unterlagen und erforderliche Gesprächsnotizen. Zweck ist die Bearbeitung und Beantwortung Ihres Anliegens.</p>
+      <p>Für allgemeine Anfragen ist Art. 6 Abs. 1 lit. f DSGVO die Rechtsgrundlage. Geht es um einen Vertrag mit Ihnen oder um auf Ihren Wunsch erfolgende vorvertragliche Maßnahmen, etwa eine Reservierung oder eine Mietanfrage, richtet sich die Verarbeitung nach Art. 6 Abs. 1 lit. b DSGVO.</p>
+      <p>Der E-Mail-Dienst wird durch die united-domains GmbH, Gautinger Straße 10, 82319 Starnberg, Deutschland, bereitgestellt, die insoweit als Auftragsverarbeiter tätig ist.</p>
+      <p>Die Mitteilung Ihrer Angaben ist freiwillig. Ohne die für Ihr Anliegen erforderlichen Informationen können wir dieses möglicherweise nicht bearbeiten. Anfragen werden gelöscht, sobald das Anliegen abschließend erledigt ist und keine weitere Korrespondenz, gesetzliche Aufbewahrungspflicht oder erforderliche Sicherung von Rechtsansprüchen eine weitere Speicherung rechtfertigt. Rechtsgrundlage einer gesetzlichen Aufbewahrung ist Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit der einschlägigen Vorschrift.</p>
+
+      <h2>6. Speicherung Ihrer Spracheinstellung</h2>
+      <p>Wählen Sie eine Sprache (Deutsch, Englisch oder Italienisch), wird diese Auswahl im lokalen Speicher Ihres Browsers (localStorage, Eintrag „sr-lang“) abgelegt, damit die Website beim nächsten Aufruf in Ihrer Sprache erscheint. Es handelt sich nicht um ein Cookie, und der Eintrag wird nicht an uns übertragen. Die Speicherung ist für den von Ihnen ausdrücklich gewünschten Dienst unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG); Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO. Sie können den Eintrag jederzeit über die Einstellungen Ihres Browsers löschen.</p>
+
+      <h2 id="openstreetmap">7. Karte (OpenStreetMap)</h2>
+      <p>Im Bereich „Anfahrt“ können Sie eine Karte von OpenStreetMap anzeigen lassen. Die Karte wird erst geladen, wenn Sie auf „Karte laden“ klicken. Erst dann stellt Ihr Browser eine Verbindung zu den Servern der OpenStreetMap Foundation (OSMF), St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Vereinigtes Königreich, her. Dabei werden insbesondere Ihre IP-Adresse und technische Angaben zu Ihrem Browser übermittelt.</p>
+      <p>Rechtsgrundlage ist Ihre Einwilligung durch den Klick (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Sie können sie jederzeit widerrufen, indem Sie die Seite neu laden; die Karte wird dann nicht erneut geladen. Für das Vereinigte Königreich besteht ein Angemessenheitsbeschluss der Europäischen Kommission (Art. 45 DSGVO). Weitere Informationen: <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">osmfoundation.org/wiki/Privacy_Policy</a>.</p>
+
+      <h2>8. Links zu Routenplanern</h2>
+      <p>Die Schaltflächen „Route planen“ und „In Apple Karten öffnen“ sind gewöhnliche Links zu Google Maps (Google Ireland Limited, Irland) und Apple Maps (Apple Inc., USA). Vor dem Anklicken werden keine Daten an diese Anbieter übertragen. Rufen Sie einen Link auf, gelten die Datenschutzhinweise des jeweiligen Anbieters.</p>
+
+      <h2>9. Schriftarten</h2>
+      <p>Die auf dieser Website verwendeten Schriften sind lokal auf unserem Server eingebunden. Beim Aufruf der Seite wird keine Verbindung zu externen Schriftanbietern wie Google Fonts hergestellt.</p>
+
+      <h2>10. Cookies, Tracking und Social Media</h2>
+      <p>Wir setzen keine Cookies, kein Analyse- oder Werbetracking und keine Social-Media-Pixel ein. Die auf der Website gezeigten Social-Media-Profile sind fiktiv; es sind keine Plugins, eingebetteten Feeds oder Verbindungen zu sozialen Netzwerken eingebunden. Die Bilder im Bereich „Seguici“ werden von unserem eigenen Server geladen.</p>
+
+      <h2>11. Empfänger der Daten</h2>
+      <p>Innerhalb unseres Unternehmens erhalten nur die Personen Zugriff, die ihn für die beschriebenen Aufgaben benötigen. Empfänger sind die Vercel Inc. (Hosting) und die united-domains GmbH (E-Mail) als Auftragsverarbeiter sowie, nur nach Ihrer Einwilligung, die OpenStreetMap Foundation. Gesetzlich erforderliche Offenlegungen an zuständige Stellen bleiben unberührt. Übermittlungen in Drittländer erfolgen nur wie in den Abschnitten 3 und 7 beschrieben.</p>
+
+      <h2>12. Auskunft, Berichtigung, Löschung und Übertragbarkeit</h2>
+      <p>Unter den gesetzlichen Voraussetzungen können Sie Auskunft über die zu Ihrer Person verarbeiteten Daten und eine Kopie dieser Daten verlangen (Art. 15 DSGVO). Unrichtige Daten können Sie berichtigen und unvollständige Daten ergänzen lassen (Art. 16 DSGVO). Außerdem bestehen Rechte auf Löschung (Art. 17 DSGVO) und auf Einschränkung der Verarbeitung (Art. 18 DSGVO). Eine gesetzlich vorgeschriebene Aufbewahrung oder eine notwendige Verarbeitung zur Rechtsverfolgung kann einer sofortigen Löschung entgegenstehen.</p>
+      <p>Das Recht auf Datenübertragbarkeit (Art. 20 DSGVO) betrifft von Ihnen bereitgestellte Daten, soweit wir diese automatisiert auf Grundlage einer Einwilligung oder eines Vertrags verarbeiten. Ihre Rechte können Sie über die in Abschnitt 1 genannten Kontaktdaten geltend machen.</p>
+
+      <h2>13. Widerspruchsrecht nach Art. 21 DSGVO</h2>
+      <p>Sie können einer auf Art. 6 Abs. 1 lit. f DSGVO gestützten Verarbeitung Ihrer personenbezogenen Daten aus Gründen widersprechen, die sich aus Ihrer besonderen Situation ergeben. Nach einem Widerspruch verarbeiten wir die betroffenen Daten nicht weiter, es sei denn, wir weisen zwingende schutzwürdige Gründe nach, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Der Widerspruch ist formlos möglich, beispielsweise per E-Mail an <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a>.</p>
+
+      <h2>14. Widerruf und automatisierte Entscheidungen</h2>
+      <p>Soweit eine Verarbeitung auf Ihrer Einwilligung beruht, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt. Eine automatisierte Entscheidungsfindung im Sinne des Art. 22 DSGVO findet nicht statt; es werden keine Nutzungsprofile erstellt.</p>
+
+      <h2>15. Beschwerderecht</h2>
+      <p>Sie können sich nach Art. 77 DSGVO bei einer Datenschutzaufsichtsbehörde beschweren, insbesondere im Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des mutmaßlichen Verstoßes. Für uns zuständig ist:</p>
+      <address>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>Heilbronner Straße 35, 70191 Stuttgart<br>Telefon: +49 (0)711 615541-0<br>E-Mail: <a href="mailto:poststelle@lfdi.bwl.de">poststelle@lfdi.bwl.de</a></address>
+      <p>Sie müssen sich vor einer Beschwerde nicht zuerst an uns wenden. Ändert sich unsere Datenverarbeitung, passen wir diese Hinweise an.</p>
+
+      <p class="legal__back"><a class="btn btn--outline" href="/">Zur Startseite</a></p>
+    </div>
+
+    <!-- ============================== ENGLISH ============================== -->
+    <div data-lang-block="en" lang="en" hidden>
+      <h1 class="legal__title">Privacy policy</h1>
+      <p class="legal__stand hand">www.sanremo.ma, as of 24 October 2026</p>
+      <p class="legal__note">This is a translation for your convenience. The German version is legally binding.</p>
+
+      <h2>1. Controller and contact</h2>
+      <address>Schweppe &amp; Schweppe KG<br>Rennershofstraße 7, 68163 Mannheim, Germany<br>Represented by the general partner Eric Schweppe<br>Phone: <a href="tel:+4962143744258">+49 (0)621 43744258</a> · Email: <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a></address>
+      <p>You can also use these details for questions about data protection and to exercise your rights.</p>
+
+      <h2>2. Scope</h2>
+      <p>This notice explains which personal data are processed when you visit sanremo.ma, use the table booking and contact functions, or contact us by email or phone. The website presents the restaurant concept “San Remo” and is for demonstration purposes only.</p>
+
+      <h2>3. Hosting by Vercel</h2>
+      <p>This website is hosted by Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA, and delivered via its global content delivery network.</p>
+      <p>When you open the website, technically necessary connection data are processed, in particular your IP address, date and time of access, the requested address, the referring page, information about your browser and operating system, the status code and the amount of data transferred. These data are needed to display the website and to keep it secure and stable, for example to detect and defend against attacks.</p>
+      <p>The legal basis is Art. 6(1)(f) GDPR. Our legitimate interest is the reliable and secure provision of our website. Vercel processes the data on our behalf under a data processing agreement pursuant to Art. 28 GDPR.</p>
+      <p>Data may also be processed on servers outside the European Union, in particular in the USA. Vercel Inc. is certified under the EU-U.S. Data Privacy Framework; transfers are based on the European Commission’s adequacy decision (Art. 45 GDPR). In addition, Vercel has agreed to the EU standard contractual clauses (Art. 46(2)(c) GDPR).</p>
+      <p>Connection data are stored only as long as necessary for these purposes. We do not use Vercel’s analytics or statistics services (such as Vercel Analytics or Speed Insights). More information: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+
+      <h2>4. Table booking and contact form</h2>
+      <p>The booking and contact functions on this website do not transmit any data to our servers. When you click “Send as email now” or “Send message as email”, your browser turns your entries into an email in your own email program. Your details only reach us once you send that email yourself. Until then they remain solely on your device.</p>
+      <p>With the email we receive the details you provide, in particular your name, phone number, email address, the requested day, time and number of guests, your topic and your message. We process them to handle and answer your booking or enquiry. The legal basis is Art. 6(1)(b) GDPR for bookings and pre-contractual enquiries and Art. 6(1)(f) GDPR for general enquiries; our legitimate interest is proper communication with guests, interested parties and business contacts.</p>
+      <p>If you voluntarily tell us about allergies or intolerances, we use this information solely to prepare for your visit. The legal basis is then your explicit consent (Art. 9(2)(a) GDPR), which you may withdraw at any time with effect for the future.</p>
+      <p>Sending the email is subject to the privacy policy of your own email provider. We delete booking requests once the date has passed and no further correspondence is needed, and other enquiries once they have been fully dealt with, unless statutory retention obligations apply.</p>
+
+      <h2>5. Contact by email or phone</h2>
+      <p>If you contact us by email or phone, we process the details you provide, in particular your name, email address or phone number, the content of your message and, where applicable, attached documents and necessary notes. The purpose is to handle and answer your request.</p>
+      <p>For general enquiries the legal basis is Art. 6(1)(f) GDPR. Where a contract with you or pre-contractual steps at your request are concerned, such as a booking or a rental enquiry, processing is based on Art. 6(1)(b) GDPR.</p>
+      <p>Our email service is provided by united-domains GmbH, Gautinger Straße 10, 82319 Starnberg, Germany, acting as our processor.</p>
+      <p>Providing your details is voluntary. Without the information required for your request, we may not be able to handle it. Enquiries are deleted once they have been fully dealt with, unless further correspondence, statutory retention obligations or the need to secure legal claims justify longer storage. The legal basis for statutory retention is Art. 6(1)(c) GDPR in conjunction with the relevant provision.</p>
+
+      <h2>6. Storing your language setting</h2>
+      <p>If you choose a language (German, English or Italian), your choice is saved in your browser’s local storage (localStorage, entry “sr-lang”) so that the website appears in your language next time. This is not a cookie, and the entry is not sent to us. Storage is strictly necessary for the service you explicitly requested (Section 25(2) no. 2 TDDDG); the legal basis for processing is Art. 6(1)(f) GDPR. You can delete the entry at any time in your browser settings.</p>
+
+      <h2 id="openstreetmap-en">7. Map (OpenStreetMap)</h2>
+      <p>In the “Directions” section you can display a map from OpenStreetMap. The map is only loaded after you click “Load map”. Only then does your browser connect to the servers of the OpenStreetMap Foundation (OSMF), St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, United Kingdom, transmitting in particular your IP address and technical information about your browser.</p>
+      <p>The legal basis is the consent you give by clicking (Art. 6(1)(a) GDPR, Section 25(1) TDDDG). You can withdraw it at any time by reloading the page; the map will then not be loaded again. The European Commission has adopted an adequacy decision for the United Kingdom (Art. 45 GDPR). More information: <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">osmfoundation.org/wiki/Privacy_Policy</a>.</p>
+
+      <h2>8. Links to route planners</h2>
+      <p>The “Plan your route” and “Open in Apple Maps” buttons are ordinary links to Google Maps (Google Ireland Limited, Ireland) and Apple Maps (Apple Inc., USA). No data are sent to these providers before you click. If you follow a link, the respective provider’s privacy policy applies.</p>
+
+      <h2>9. Fonts</h2>
+      <p>The fonts used on this website are hosted locally on our server. No connection to external font providers such as Google Fonts is made.</p>
+
+      <h2>10. Cookies, tracking and social media</h2>
+      <p>We do not use cookies, analytics or advertising tracking, or social media pixels. The social media profiles shown on this website are fictional; no plugins, embedded feeds or connections to social networks are included. The images in the “Seguici” section are loaded from our own server.</p>
+
+      <h2>11. Recipients</h2>
+      <p>Within our company, only those who need access for the tasks described receive it. Recipients are Vercel Inc. (hosting) and united-domains GmbH (email) as processors and, only with your consent, the OpenStreetMap Foundation. Disclosures required by law remain unaffected. Transfers to third countries take place only as described in sections 3 and 7.</p>
+
+      <h2>12. Access, rectification, erasure and portability</h2>
+      <p>Subject to the legal requirements, you may request information about the data we process about you and a copy of these data (Art. 15 GDPR), have incorrect data corrected and incomplete data completed (Art. 16 GDPR), and request erasure (Art. 17 GDPR) or restriction of processing (Art. 18 GDPR). Statutory retention or processing necessary for legal claims may prevent immediate erasure.</p>
+      <p>The right to data portability (Art. 20 GDPR) covers data you have provided, insofar as we process them automatically on the basis of consent or a contract. You can exercise your rights using the contact details in section 1.</p>
+
+      <h2>13. Right to object under Art. 21 GDPR</h2>
+      <p>You may object, on grounds relating to your particular situation, to processing of your personal data based on Art. 6(1)(f) GDPR. We will then no longer process the data concerned unless we demonstrate compelling legitimate grounds that override your interests, rights and freedoms, or the processing serves the establishment, exercise or defence of legal claims. You can object informally, for example by email to <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a>.</p>
+
+      <h2>14. Withdrawal of consent and automated decisions</h2>
+      <p>Where processing is based on your consent, you can withdraw it at any time with effect for the future. This does not affect the lawfulness of processing before withdrawal. There is no automated decision-making within the meaning of Art. 22 GDPR, and no user profiles are created.</p>
+
+      <h2>15. Right to lodge a complaint</h2>
+      <p>Under Art. 77 GDPR you may lodge a complaint with a data protection supervisory authority, in particular in the member state of your habitual residence, place of work or the place of the alleged infringement. The authority responsible for us is:</p>
+      <address>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>Heilbronner Straße 35, 70191 Stuttgart, Germany<br>Phone: +49 (0)711 615541-0<br>Email: <a href="mailto:poststelle@lfdi.bwl.de">poststelle@lfdi.bwl.de</a></address>
+      <p>You do not need to contact us before lodging a complaint. If our processing changes, we will update this notice.</p>
+
+      <p class="legal__back"><a class="btn btn--outline" href="/">Back to the homepage</a></p>
+    </div>
+
+    <!-- ============================== ITALIANO ============================== -->
+    <div data-lang-block="it" lang="it" hidden>
+      <h1 class="legal__title">Informativa sulla privacy</h1>
+      <p class="legal__stand hand">www.sanremo.ma, aggiornata al 24 ottobre 2026</p>
+      <p class="legal__note">Traduzione a scopo informativo. Fa fede la versione tedesca.</p>
+
+      <h2>1. Titolare del trattamento e contatti</h2>
+      <address>Schweppe &amp; Schweppe KG<br>Rennershofstraße 7, 68163 Mannheim, Germania<br>Rappresentata dal socio accomandatario Eric Schweppe<br>Telefono: <a href="tel:+4962143744258">+49 (0)621 43744258</a> · E-mail: <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a></address>
+      <p>A questi recapiti potete rivolgervi anche per domande sulla protezione dei dati e per esercitare i vostri diritti.</p>
+
+      <h2>2. Ambito di applicazione</h2>
+      <p>La presente informativa spiega quali dati personali vengono trattati durante la visita al sito sanremo.ma, l’uso delle funzioni di prenotazione e contatto e il contatto via e-mail o telefono. Il sito presenta il concept di ristorante “San Remo” e ha scopo puramente dimostrativo.</p>
+
+      <h2>3. Hosting tramite Vercel</h2>
+      <p>Il sito è ospitato da Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA, e distribuito tramite la sua rete globale di server (content delivery network).</p>
+      <p>Quando aprite il sito vengono trattati i dati di connessione tecnicamente necessari, in particolare l’indirizzo IP, data e ora dell’accesso, l’indirizzo richiesto, la pagina di provenienza, informazioni su browser e sistema operativo, il codice di stato e la quantità di dati trasmessi. Questi dati servono a mostrarvi il sito e a garantirne un funzionamento sicuro e stabile, ad esempio per riconoscere e respingere attacchi.</p>
+      <p>La base giuridica è l’art. 6, par. 1, lett. f) GDPR. Il nostro legittimo interesse consiste nella messa a disposizione affidabile e sicura del sito. Vercel tratta i dati per nostro conto sulla base di un accordo di trattamento ai sensi dell’art. 28 GDPR.</p>
+      <p>I dati possono essere trattati anche su server al di fuori dell’Unione europea, in particolare negli USA. Vercel Inc. è certificata ai sensi dell’EU-U.S. Data Privacy Framework; il trasferimento si basa sulla decisione di adeguatezza della Commissione europea (art. 45 GDPR). Inoltre Vercel ha sottoscritto le clausole contrattuali tipo della Commissione UE (art. 46, par. 2, lett. c) GDPR).</p>
+      <p>I dati di connessione vengono conservati solo per il tempo necessario a tali finalità. Non utilizziamo servizi di analisi o statistica di Vercel (come Vercel Analytics o Speed Insights). Maggiori informazioni: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+
+      <h2>4. Prenotazione e modulo di contatto</h2>
+      <p>Le funzioni di prenotazione e contatto di questo sito non trasmettono dati ai nostri server. Quando cliccate su “Invia ora come e-mail” o “Invia il messaggio come e-mail”, il vostro browser prepara con i dati inseriti un’e-mail nel vostro programma di posta. I vostri dati ci raggiungono solo quando inviate voi stessi questa e-mail; fino ad allora restano esclusivamente sul vostro dispositivo.</p>
+      <p>Con l’e-mail riceviamo i dati da voi indicati, in particolare nome, numero di telefono, indirizzo e-mail, giorno, orario e numero di persone desiderati, l’argomento e il messaggio. Li trattiamo per gestire e rispondere alla prenotazione o alla richiesta. La base giuridica è l’art. 6, par. 1, lett. b) GDPR per prenotazioni e richieste precontrattuali e l’art. 6, par. 1, lett. f) GDPR per richieste generali; il nostro legittimo interesse è una comunicazione adeguata con ospiti, interessati e contatti commerciali.</p>
+      <p>Se ci comunicate volontariamente allergie o intolleranze, utilizziamo tali informazioni esclusivamente per preparare la vostra visita. La base giuridica è in tal caso il vostro consenso esplicito (art. 9, par. 2, lett. a) GDPR), revocabile in qualsiasi momento con effetto per il futuro.</p>
+      <p>Per l’invio dell’e-mail si applica l’informativa del vostro provider di posta. Le richieste di prenotazione vengono cancellate dopo la data prenotata, se non è necessaria ulteriore corrispondenza; le altre richieste una volta evase, salvo obblighi legali di conservazione.</p>
+
+      <h2>5. Contatto via e-mail o telefono</h2>
+      <p>Se ci contattate via e-mail o telefono, trattiamo i dati che ci comunicate, in particolare nome, indirizzo e-mail o numero di telefono, il contenuto del messaggio ed eventuali allegati e note necessarie. La finalità è gestire e rispondere alla vostra richiesta.</p>
+      <p>Per le richieste generali la base giuridica è l’art. 6, par. 1, lett. f) GDPR. Se si tratta di un contratto con voi o di misure precontrattuali su vostra richiesta, come una prenotazione o una richiesta di affitto, il trattamento si basa sull’art. 6, par. 1, lett. b) GDPR.</p>
+      <p>Il servizio e-mail è fornito da united-domains GmbH, Gautinger Straße 10, 82319 Starnberg, Germania, in qualità di responsabile del trattamento.</p>
+      <p>La comunicazione dei dati è facoltativa; senza le informazioni necessarie potremmo non essere in grado di gestire la richiesta. Le richieste vengono cancellate una volta evase, salvo che ulteriore corrispondenza, obblighi legali di conservazione o la tutela di diritti ne giustifichino la conservazione. La base giuridica della conservazione obbligatoria è l’art. 6, par. 1, lett. c) GDPR in combinato disposto con la norma applicabile.</p>
+
+      <h2>6. Memorizzazione della lingua</h2>
+      <p>Se scegliete una lingua (tedesco, inglese o italiano), la scelta viene salvata nella memoria locale del browser (localStorage, voce “sr-lang”), così che al prossimo accesso il sito appaia nella vostra lingua. Non si tratta di un cookie e la voce non ci viene trasmessa. La memorizzazione è strettamente necessaria per il servizio da voi espressamente richiesto (§ 25, comma 2, n. 2 TDDDG); la base giuridica è l’art. 6, par. 1, lett. f) GDPR. Potete cancellare la voce in qualsiasi momento dalle impostazioni del browser.</p>
+
+      <h2 id="openstreetmap-it">7. Mappa (OpenStreetMap)</h2>
+      <p>Nella sezione “Come arrivare” potete visualizzare una mappa di OpenStreetMap. La mappa viene caricata solo dopo aver cliccato su “Carica la mappa”. Solo allora il vostro browser si collega ai server della OpenStreetMap Foundation (OSMF), St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Regno Unito, trasmettendo in particolare il vostro indirizzo IP e informazioni tecniche sul browser.</p>
+      <p>La base giuridica è il consenso espresso con il clic (art. 6, par. 1, lett. a) GDPR, § 25, comma 1 TDDDG). Potete revocarlo in qualsiasi momento ricaricando la pagina; la mappa non verrà caricata di nuovo. Per il Regno Unito esiste una decisione di adeguatezza della Commissione europea (art. 45 GDPR). Maggiori informazioni: <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">osmfoundation.org/wiki/Privacy_Policy</a>.</p>
+
+      <h2>8. Link ai navigatori</h2>
+      <p>I pulsanti “Calcola il percorso” e “Apri in Mappe di Apple” sono normali link a Google Maps (Google Ireland Limited, Irlanda) e Apple Maps (Apple Inc., USA). Prima del clic non viene trasmesso alcun dato. Se seguite un link, si applica l’informativa del rispettivo fornitore.</p>
+
+      <h2>9. Caratteri</h2>
+      <p>I caratteri utilizzati sono ospitati localmente sul nostro server. Non viene stabilita alcuna connessione a fornitori esterni di font come Google Fonts.</p>
+
+      <h2>10. Cookie, tracciamento e social media</h2>
+      <p>Non utilizziamo cookie, strumenti di analisi o di tracciamento pubblicitario né pixel dei social media. I profili social mostrati sono fittizi; non sono integrati plugin, feed o collegamenti a social network. Le immagini della sezione “Seguici” vengono caricate dal nostro server.</p>
+
+      <h2>11. Destinatari</h2>
+      <p>All’interno della nostra azienda hanno accesso solo le persone che ne hanno bisogno per i compiti descritti. Destinatari sono Vercel Inc. (hosting) e united-domains GmbH (e-mail) in qualità di responsabili del trattamento e, solo con il vostro consenso, la OpenStreetMap Foundation. Restano salve le comunicazioni previste dalla legge. Trasferimenti verso paesi terzi avvengono solo come descritto nelle sezioni 3 e 7.</p>
+
+      <h2>12. Accesso, rettifica, cancellazione e portabilità</h2>
+      <p>Alle condizioni di legge potete chiedere informazioni sui dati che vi riguardano e una copia degli stessi (art. 15 GDPR), la rettifica di dati inesatti e l’integrazione di dati incompleti (art. 16 GDPR), la cancellazione (art. 17 GDPR) e la limitazione del trattamento (art. 18 GDPR). Obblighi legali di conservazione o trattamenti necessari per la tutela di diritti possono impedire una cancellazione immediata.</p>
+      <p>Il diritto alla portabilità (art. 20 GDPR) riguarda i dati da voi forniti, se li trattiamo in modo automatizzato sulla base di un consenso o di un contratto. Potete esercitare i vostri diritti tramite i recapiti indicati nella sezione 1.</p>
+
+      <h2>13. Diritto di opposizione ai sensi dell’art. 21 GDPR</h2>
+      <p>Potete opporvi, per motivi connessi alla vostra situazione particolare, al trattamento dei vostri dati basato sull’art. 6, par. 1, lett. f) GDPR. Dopo l’opposizione non tratteremo più tali dati, salvo dimostrare motivi legittimi cogenti prevalenti sui vostri interessi, diritti e libertà, oppure se il trattamento serve all’accertamento, all’esercizio o alla difesa di un diritto in sede giudiziaria. L’opposizione è possibile senza formalità, ad esempio via e-mail a <a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a>.</p>
+
+      <h2>14. Revoca del consenso e decisioni automatizzate</h2>
+      <p>Se un trattamento si basa sul vostro consenso, potete revocarlo in qualsiasi momento con effetto per il futuro, senza pregiudicare la liceità del trattamento effettuato prima della revoca. Non avviene alcun processo decisionale automatizzato ai sensi dell’art. 22 GDPR e non vengono creati profili.</p>
+
+      <h2>15. Diritto di reclamo</h2>
+      <p>Ai sensi dell’art. 77 GDPR potete proporre reclamo a un’autorità di controllo, in particolare nello Stato membro in cui risiedete abitualmente, lavorate o in cui si è verificata la presunta violazione. L’autorità competente per noi è:</p>
+      <address>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br>Heilbronner Straße 35, 70191 Stuttgart, Germania<br>Telefono: +49 (0)711 615541-0<br>E-mail: <a href="mailto:poststelle@lfdi.bwl.de">poststelle@lfdi.bwl.de</a></address>
+      <p>Non è necessario rivolgersi prima a noi. In caso di modifiche ai nostri trattamenti aggiorneremo la presente informativa.</p>
+
+      <p class="legal__back"><a class="btn btn--outline" href="/">Torna alla home</a></p>
+    </div>
+
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer__brand">
+    <svg class="footer__logo" viewBox="0 0 2082 486" role="img" aria-label="San Remo" focusable="false"><use href="#logo"/></svg>
+    <p class="hand" lang="it">Ristorante a Mannheim dal 1977</p>
+  </div>
+  <div class="dots dots--light" aria-hidden="true"></div>
+  <div class="footer__cols">
+    <div class="footer__col">
+      <h2 class="footer__title" data-i18n="footer.hours">Öffnungszeiten</h2>
+      <p><span data-i18n="info.days">Donnerstag, Freitag &amp; Samstag</span><br><span data-i18n="info.from18">ab 18 Uhr</span></p>
+      <p class="muted" data-i18n="info.closed">Sonntag bis Mittwoch geschlossen</p>
+    </div>
+    <div class="footer__col">
+      <h2 class="footer__title" data-i18n="footer.address">Adresse</h2>
+      <p>San Remo<br>Beilstraße 3<br>68159 Mannheim-Jungbusch</p>
+      <p><a href="/#anfahrt" data-i18n="footer.route">Anfahrt planen</a></p>
+    </div>
+    <div class="footer__col">
+      <h2 class="footer__title" data-i18n="footer.contact">Kontakt</h2>
+      <p><a href="tel:+4962143744258">0621 43744258</a><br><a href="mailto:ciao@sanremo.ma">ciao@sanremo.ma</a></p>
+      <p><a href="/#reservieren" data-i18n="nav.book">Reservieren</a></p>
+    </div>
+    <div class="footer__col">
+      <h2 class="footer__title" data-i18n="footer.discover">Entdecken</h2>
+      <ul class="footer__links">
+        <li><a href="/#karte" data-i18n="nav.menu">Speisekarte</a></li>
+        <li><a href="/#ambiente" data-i18n="nav.ambiente">Ambiente</a></li>
+        <li><a href="/#vermietung" data-i18n="nav.rent">Vermietung</a></li>
+        <li><a href="/#social" data-i18n="footer.social">Social Media</a></li>
+      </ul>
+    </div>
+    <div class="footer__col footer__col--social">
+      <h2 class="footer__title" data-i18n="footer.follow">Folgen</h2>
+      <div class="social-icons">
+        <a href="#social" class="social-icon" data-demo-social aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a href="#social" class="social-icon" data-demo-social aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+        <a href="#social" class="social-icon" data-demo-social aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+      </div>
+      <p class="muted">@sanremo.mannheim</p>
+    </div>
+  </div>
+  <div class="dots dots--light" aria-hidden="true"></div>
+  <div class="footer__bottom">
+    <p>© 2026 San Remo, Mannheim</p>
+    <ul class="footer__legal">
+      <li><a href="/impressum" data-i18n="footer.imprint">Impressum</a></li>
+      <li><a href="/datenschutz" data-i18n="footer.privacy">Datenschutz</a></li>
+    </ul>
+    <div class="lang lang--footer" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
+      <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true">DE</button>
+      <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false">IT</button>
+    </div>
+  </div>
+  <p class="footer__fiction" data-i18n="footer.fiction">Diese Webseite dient zur reinen Darstellung und ist fiktiv.</p>
+</footer>
+
+<script type="module" src="/assets/js/main.js?v=569e388870"></script>
+</body>
+</html>

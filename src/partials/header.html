@@ -1,0 +1,54 @@
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Zum Inhalt springen</a>
+<header class="site-header" data-header>
+  <a class="brand" href="/#top" data-i18n-attr="aria-label:a11y.home" aria-label="San Remo, zur Startseite">
+    <svg class="brand__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+  </a>
+  <nav class="nav" data-i18n-attr="aria-label:a11y.mainnav" aria-label="Hauptnavigation">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="/#karte" data-nav="karte" data-i18n="nav.menu">Speisekarte</a></li>
+      <li><a class="nav__link" href="/#ambiente" data-nav="ambiente" data-i18n="nav.ambiente">Ambiente</a></li>
+      <li><a class="nav__link nav__link--rent" href="/#vermietung" data-nav="vermietung" data-i18n="nav.rent">Vermietung</a></li>
+      <li><a class="nav__link" href="/#reservieren" data-nav="reservieren" data-i18n="nav.book">Reservieren</a></li>
+      <li><a class="nav__link" href="/#kontakt" data-nav="kontakt" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a class="nav__link" href="/#anfahrt" data-nav="anfahrt" data-i18n="nav.directions">Anfahrt</a></li>
+    </ul>
+  </nav>
+  <div class="header__tools">
+    <div class="lang" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
+      <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true" title="Deutsch">DE</button>
+      <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button>
+      <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false" title="Italiano">IT</button>
+    </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-overlay" data-burger>
+      <svg class="icon" aria-hidden="true"><use href="#i-burger"/></svg>
+      <span class="sr-only" data-i18n="a11y.openmenu">Menü öffnen</span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="menu-overlay" data-overlay hidden>
+  <div class="overlay__top">
+    <svg class="overlay__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+    <button class="overlay__close" type="button" data-overlay-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      <span class="sr-only" data-i18n="a11y.closemenu">Menü schließen</span>
+    </button>
+  </div>
+  <nav class="overlay__nav" data-i18n-attr="aria-label:a11y.mainnav" aria-label="Hauptnavigation">
+    <a href="/#karte" data-i18n="nav.menu">Speisekarte</a>
+    <a href="/#ambiente" data-i18n="nav.ambiente">Ambiente</a>
+    <a href="/#vermietung" data-i18n="nav.rent">Vermietung</a>
+    <a href="/#reservieren" data-i18n="nav.book">Reservieren</a>
+    <a href="/#kontakt" data-i18n="nav.contact">Kontakt</a>
+    <a href="/#anfahrt" data-i18n="nav.directions">Anfahrt</a>
+  </nav>
+  <div class="overlay__foot">
+    <p class="hand" lang="it">Ristorante a Mannheim dal 1977</p>
+    <p class="overlay__meta"><span data-i18n="info.hours">Do, Fr &amp; Sa ab 18 Uhr</span><br><a href="tel:+4962143744258">0621 43744258</a></p>
+    <div class="lang lang--overlay" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
+      <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true">Deutsch</button>
+      <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+      <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false">Italiano</button>
+    </div>
+  </div>
+</div>
