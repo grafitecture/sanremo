@@ -2,6 +2,10 @@
 import { s, t } from './i18n.js';
 
 const MAP = { lat: 49.4949, lon: 8.4598, dLat: 0.0026, dLon: 0.0052 };
+const OSM_URL = `https://www.openstreetmap.org/?mlat=${MAP.lat}&mlon=${MAP.lon}#map=17/${MAP.lat}/${MAP.lon}`;
+
+/* true when the page runs as a Claude artifact: no embedded maps, no plain file downloads there */
+export const inClaude = () => typeof window.claude?.use === 'function';
 
 /* toast */
 let toastTimer;
@@ -125,6 +129,18 @@ function initMap() {
   const map = document.querySelector('[data-map]');
   const btn = map?.querySelector('[data-map-load]');
   if (!btn) return;
+  if (inClaude()) {
+    // Artifacts cannot embed other sites, so the gate links out to OpenStreetMap instead.
+    // Runs before i18n harvests the German defaults, so the new keys switch language as usual.
+    const text = map.querySelector('.map__text');
+    if (text) { text.dataset.i18n = 'dir.mapTextExt'; text.textContent = 'Die Karte öffnet sich auf openstreetmap.org in einem neuen Tab.'; }
+    const link = document.createElement('a');
+    link.className = btn.className;
+    link.href = OSM_URL; link.target = '_blank'; link.rel = 'noopener';
+    link.dataset.i18n = 'dir.mapOpenExt'; link.textContent = 'Karte öffnen';
+    btn.replaceWith(link);
+    return;
+  }
   btn.addEventListener('click', () => {
     const bbox = [MAP.lon - MAP.dLon, MAP.lat - MAP.dLat, MAP.lon + MAP.dLon, MAP.lat + MAP.dLat].map((v) => v.toFixed(5)).join('%2C');
     const frame = document.createElement('iframe');
@@ -139,7 +155,7 @@ function initMap() {
     marker.innerHTML = '<use href="#i-pin"/>';
     const open = document.createElement('a');
     open.className = 'btn btn--white map__open';
-    open.href = `https://www.openstreetmap.org/?mlat=${MAP.lat}&mlon=${MAP.lon}#map=17/${MAP.lat}/${MAP.lon}`;
+    open.href = OSM_URL;
     open.target = '_blank'; open.rel = 'noopener';
     open.textContent = s('mapOpen');
     map.append(frame, marker, open);

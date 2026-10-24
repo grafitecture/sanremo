@@ -3,7 +3,7 @@
 export const MAIL_TO = 'ciao@sanremo.ma';
 
 import { s, fill, locale, getLang } from './i18n.js';
-import { toast } from './ui.js';
+import { toast, inClaude } from './ui.js';
 
 const OPEN_DAYS = [4, 5, 6];               // Thu, Fri, Sat (Date.getDay)
 const SLOTS = ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30'];
@@ -48,10 +48,15 @@ async function copyText(text) {
   }
 }
 
+const mailText = (m) => `${s('mailTo')}: ${MAIL_TO}\n${s('mailSubject')}: ${m.subject}\n\n${m.body}`;
+
 function wireSent(panel, form, getMail) {
+  // In a Claude artifact the mail program is never opened automatically, so the link opens it the first time.
+  const open = panel.querySelector('[data-sent-mailto]');
+  if (inClaude() && open) { open.dataset.i18n = 'sent.open'; open.textContent = 'Im E-Mail-Programm öffnen'; }
   panel.querySelector('[data-sent-copy]').addEventListener('click', () => {
     const m = getMail();
-    if (m) copyText(`${MAIL_TO}\n${m.subject}\n\n${m.body}`);
+    if (m) copyText(mailText(m));
   });
   panel.querySelector('[data-sent-reset]').addEventListener('click', () => {
     panel.hidden = true; form.hidden = false;
@@ -61,10 +66,13 @@ function wireSent(panel, form, getMail) {
 
 function showSent(panel, form, mail) {
   panel.querySelector('[data-sent-mailto]').href = mailto(mail.subject, mail.body);
+  const preview = panel.querySelector('[data-sent-preview]');
+  if (preview) preview.textContent = mailText(mail);
   form.hidden = true; panel.hidden = false;
   panel.focus({ preventScroll: true });
-  panel.scrollIntoView({ block: 'center', behavior: 'smooth' });
-  window.location.href = mailto(mail.subject, mail.body);
+  panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  // mailto: links are unreliable inside artifacts; there the viewer opens the mail via the button or copies the text
+  if (!inClaude()) window.location.href = mailto(mail.subject, mail.body);
 }
 
 /* ---------------- Reservation ---------------- */

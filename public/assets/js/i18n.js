@@ -69,9 +69,10 @@ const DICT = {
     'book.submit': 'Send as email now',
     'form.name': 'Name', 'form.phone': 'Phone', 'form.email': 'Email', 'form.optional': 'optional',
     'form.privacy': 'Your details are not transmitted via this website: we prepare an email in your own email program, which you send yourself. More in our <a href="/datenschutz">privacy policy</a>.',
-    'sent.title': 'Almost done', 'sent.booking': 'Your email program opens with the prepared request. Please send the email and we will confirm your booking as soon as possible.',
-    'sent.contact': 'Your email program opens with your message. Please send the email and we will get back to you shortly.',
-    'sent.fallback': 'Nothing opened? Copy the text and send it to ciao@sanremo.ma.',
+    'sent.title': 'Almost done', 'sent.booking': 'Your request is ready as an email to us. Send it from your email program and we will confirm your booking as soon as possible.',
+    'sent.contact': 'Your message is ready as an email to us. Send it from your email program and we will get back to you shortly.',
+    'sent.fallback': 'No email program opened? Copy the text and send it to ciao@sanremo.ma.',
+    'sent.previewLabel': 'Email preview', 'sent.open': 'Open in email program',
     'sent.copy': 'Copy text', 'sent.reopen': 'Open email again', 'sent.again': 'New request', 'sent.againContact': 'New message',
     'contact.hand': 'Drop us a line', 'contact.phoneHint': 'You can reach us by phone during opening hours and by email at any time.',
     'contact.topic': 'What is it about?', 'contact.tGeneral': 'General question', 'contact.tEvent': 'Parties &amp; groups', 'contact.tRent': 'Renting &amp; viewing',
@@ -83,6 +84,7 @@ const DICT = {
     'dir.carT': 'Car', 'dir.car': 'Parking in the quarter is limited. You will find multi-storey car parks in the nearby Quadrate of the city centre.',
     'dir.mapTitle': 'Show the map?', 'dir.mapText': 'The map is loaded from OpenStreetMap. This transfers your IP address to the OpenStreetMap Foundation.',
     'dir.mapLoad': 'Load map', 'dir.mapPrivacy': 'More about privacy', 'dir.mapPrivacyHref': '/datenschutz#openstreetmap-en',
+    'dir.mapTextExt': 'The map opens on openstreetmap.org in a new tab.', 'dir.mapOpenExt': 'Open map',
     'social.hand': 'Neon light for your feed', 'social.note': 'The profiles are fictional and for demonstration only.',
     'alt.hero': 'San Remo’s dining room in red light with the bar and the glowing “San Remo” neon sign',
     'alt.neon': 'The “San Remo” neon sign above the bar', 'alt.menuAntipasti': 'Focaccia with olive oil and sea salt on a wooden board',
@@ -161,9 +163,10 @@ const DICT = {
     'book.submit': 'Invia ora come e-mail',
     'form.name': 'Nome', 'form.phone': 'Telefono', 'form.email': 'E-mail', 'form.optional': 'facoltativo',
     'form.privacy': 'I tuoi dati non vengono trasmessi tramite questo sito: prepariamo un’e-mail nel tuo programma di posta, che invii tu stesso. Maggiori informazioni nell’<a href="/datenschutz">informativa sulla privacy</a>.',
-    'sent.title': 'Quasi fatto', 'sent.booking': 'Il tuo programma di posta si apre con la richiesta già pronta. Invia l’e-mail e confermeremo la prenotazione il prima possibile.',
-    'sent.contact': 'Il tuo programma di posta si apre con il tuo messaggio. Invia l’e-mail e ti risponderemo a breve.',
-    'sent.fallback': 'Non si è aperto nulla? Copia il testo e invialo a ciao@sanremo.ma.',
+    'sent.title': 'Quasi fatto', 'sent.booking': 'La tua richiesta è pronta come e-mail per noi. Inviala dal tuo programma di posta e confermeremo la prenotazione il prima possibile.',
+    'sent.contact': 'Il tuo messaggio è pronto come e-mail per noi. Invialo dal tuo programma di posta e ti risponderemo a breve.',
+    'sent.fallback': 'Non si è aperto nessun programma di posta? Copia il testo e invialo a ciao@sanremo.ma.',
+    'sent.previewLabel': 'Anteprima dell’e-mail', 'sent.open': 'Apri nel programma di posta',
     'sent.copy': 'Copia il testo', 'sent.reopen': 'Riapri l’e-mail', 'sent.again': 'Nuova richiesta', 'sent.againContact': 'Nuovo messaggio',
     'contact.hand': 'Scrivici', 'contact.phoneHint': 'Per telefono ci trovi durante gli orari di apertura, via e-mail sempre.',
     'contact.topic': 'Di cosa si tratta?', 'contact.tGeneral': 'Domanda generale', 'contact.tEvent': 'Feste e gruppi', 'contact.tRent': 'Affitto e visita',
@@ -175,6 +178,7 @@ const DICT = {
     'dir.carT': 'Auto', 'dir.car': 'I parcheggi nel quartiere sono pochi. Trovi autosilo nei vicini Quadrate del centro.',
     'dir.mapTitle': 'Mostrare la mappa?', 'dir.mapText': 'La mappa viene caricata da OpenStreetMap. In questo modo il tuo indirizzo IP viene trasmesso alla OpenStreetMap Foundation.',
     'dir.mapLoad': 'Carica la mappa', 'dir.mapPrivacy': 'Maggiori informazioni sulla privacy', 'dir.mapPrivacyHref': '/datenschutz#openstreetmap-it',
+    'dir.mapTextExt': 'La mappa si apre su openstreetmap.org in una nuova scheda.', 'dir.mapOpenExt': 'Apri la mappa',
     'social.hand': 'Luce al neon per il tuo feed', 'social.note': 'I profili sono fittizi e solo dimostrativi.',
     'alt.hero': 'La sala del San Remo in luce rossa con il bancone e l’insegna al neon “San Remo”',
     'alt.neon': 'L’insegna al neon “San Remo” sopra il bancone', 'alt.menuAntipasti': 'Focaccia con olio d’oliva e sale marino su un tagliere',
@@ -202,7 +206,8 @@ const STR = {
     errEmailReq: 'Bitte geben Sie Ihre E-Mail-Adresse an.', errMessage: 'Bitte schreiben Sie uns eine kurze Nachricht.',
     summary: 'Ihre Anfrage', copied: 'Text kopiert. Senden Sie ihn an ciao@sanremo.ma.', copyFail: 'Kopieren hat nicht geklappt. Bitte markieren Sie den Text selbst.',
     social: 'Dieses Profil ist fiktiv. Die Seite dient nur zur Darstellung.', mapOpen: 'Größere Karte öffnen', mapFrame: 'Karte: San Remo, Beilstraße 3, Mannheim',
-    pdfLang: 'PDF, Deutsch',
+    pdfLang: 'PDF, Deutsch', mailTo: 'An', mailSubject: 'Betreff',
+    pdfUnavailable: 'Der Download ist in dieser Ansicht nicht verfügbar.', pdfBusy: 'Bitte einen Moment warten und dann erneut tippen.',
     bookSubject: 'Reservierungsanfrage: {date}, {time} Uhr, {n}',
     bookBody: 'Buongiorno San Remo,\n\nich möchte gern einen Tisch reservieren:\n\nTag: {date}\nUhrzeit: {time} Uhr\nPersonen: {count}\nName: {name}\nTelefon: {phone}{email}{notes}\n\nVielen Dank und bis bald!\n{name}\n\n– gesendet über sanremo.ma',
     emailLine: '\nE-Mail: {v}', notesLine: '\nAnmerkungen: {v}',
@@ -220,7 +225,8 @@ const STR = {
     errEmailReq: 'Please enter your email address.', errMessage: 'Please write us a short message.',
     summary: 'Your request', copied: 'Text copied. Please send it to ciao@sanremo.ma.', copyFail: 'Copying did not work. Please select the text yourself.',
     social: 'This profile is fictional. This website is for demonstration only.', mapOpen: 'Open larger map', mapFrame: 'Map: San Remo, Beilstraße 3, Mannheim',
-    pdfLang: 'PDF, English',
+    pdfLang: 'PDF, English', mailTo: 'To', mailSubject: 'Subject',
+    pdfUnavailable: 'Downloads are not available in this view.', pdfBusy: 'Please wait a moment and then tap again.',
     bookSubject: 'Table request: {date}, {time}, {n}',
     bookBody: 'Buongiorno San Remo,\n\nI would like to book a table:\n\nDay: {date}\nTime: {time}\nGuests: {count}\nName: {name}\nPhone: {phone}{email}{notes}\n\nMany thanks and see you soon!\n{name}\n\n– sent via sanremo.ma',
     emailLine: '\nEmail: {v}', notesLine: '\nNotes: {v}',
@@ -238,7 +244,8 @@ const STR = {
     errEmailReq: 'Inserisci il tuo indirizzo e-mail.', errMessage: 'Scrivici un breve messaggio.',
     summary: 'La tua richiesta', copied: 'Testo copiato. Invialo a ciao@sanremo.ma.', copyFail: 'Copia non riuscita. Seleziona il testo manualmente.',
     social: 'Questo profilo è fittizio. Il sito è solo dimostrativo.', mapOpen: 'Apri la mappa grande', mapFrame: 'Mappa: San Remo, Beilstraße 3, Mannheim',
-    pdfLang: 'PDF, italiano',
+    pdfLang: 'PDF, italiano', mailTo: 'A', mailSubject: 'Oggetto',
+    pdfUnavailable: 'Il download non è disponibile in questa visualizzazione.', pdfBusy: 'Attendi un momento e poi tocca di nuovo.',
     bookSubject: 'Richiesta di prenotazione: {date}, ore {time}, {n}',
     bookBody: 'Buongiorno San Remo,\n\nvorrei prenotare un tavolo:\n\nGiorno: {date}\nOra: {time}\nPersone: {count}\nNome: {name}\nTelefono: {phone}{email}{notes}\n\nGrazie mille e a presto!\n{name}\n\n– inviato da sanremo.ma',
     emailLine: '\nE-mail: {v}', notesLine: '\nNote: {v}',
@@ -301,8 +308,10 @@ export function setLang(lang, { save = false } = {}) {
   apply(lang);
   if (save) {
     try { localStorage.setItem(STORE, lang); } catch (e) { /* storage blocked: the language still switches for this visit */ }
-    const url = new URL(location.href);
-    if (url.searchParams.has('lang')) { url.searchParams.delete('lang'); history.replaceState(null, '', url); }
+    try {
+      const url = new URL(location.href);
+      if (url.searchParams.has('lang')) { url.searchParams.delete('lang'); history.replaceState(null, '', url); }
+    } catch (e) { /* some embedded views do not allow URL changes */ }
   }
   document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }

@@ -1,6 +1,7 @@
 // La Carta: tabs, dish lists, legend, allergen lists and language-specific PDF links.
 import { MENU, ALLERGENS, ADDITIVES, MENU_TEXT, formatPrice, volLabel } from './menu-data.js';
 import { getLang, s } from './i18n.js';
+import { inClaude, toast } from './ui.js';
 
 const PDF = { de: 'DE', en: 'EN', it: 'IT' };
 const HOUSE_TIP = { de: 'Empfehlung des Hauses', en: 'House recommendation', it: 'Consiglio della casa' };
@@ -93,6 +94,23 @@ function updatePdfLinks() {
   });
 }
 
+/* Inside a Claude artifact plain download links are inert: hand the PDF to the viewer's save dialog instead. */
+async function savePdf(e) {
+  const a = e.target.closest('a[data-pdf]');
+  if (!a) return;
+  e.preventDefault();
+  const downloads = await window.claude.use('downloads').catch(() => null);
+  if (!downloads) { toast(s('pdfUnavailable')); return; }
+  try {
+    const res = await fetch(a.getAttribute('href'));
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    await downloads.save({ filename: a.getAttribute('download') || 'San-Remo.pdf', data: await res.blob() });
+  } catch (err) {
+    if (err?.code === 'declined') return;
+    toast(s(err?.code === 'rate_limited' ? 'pdfBusy' : 'pdfUnavailable'));
+  }
+}
+
 function showMedia() {
   mediaEl.querySelectorAll('[data-tab]').forEach((p) => { p.hidden = p.dataset.tab !== active; });
 }
@@ -149,5 +167,6 @@ export function initMenu() {
     select(ids[i], { focus: true });
   });
   document.addEventListener('langchange', render);
+  if (inClaude()) root.addEventListener('click', savePdf);
   render();
 }

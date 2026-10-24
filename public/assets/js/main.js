@@ -8,3 +8,6 @@ initMenu();
 initBooking();
 initContact();
 initI18n(); // harvests the German texts, applies the chosen language and notifies the modules
+
+const ready = () => document.documentElement.classList.add('is-ready');
+if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready, { once: true });

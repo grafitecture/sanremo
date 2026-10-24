@@ -31,6 +31,7 @@ node tools/pdf.mjs       # PDFs neu erzeugen (nach Änderungen an menu-data.js)
 node tools/images.mjs <rot-ordner> <solide-ordner>   # Bilder neu rechnen (ONLY=hero,neon für einzelne)
 python3 tools/fonts.py   # Schriften neu subsetten (WOFF2)
 python3 tools/grade.py <BILDER_ROT> <ziel>            # Rottöne exakt auf #DB042C anpassen
+node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (relative Pfade, Schriften eingebettet, nur JPEG)
 ```
 
 `tools/*.mjs` benötigen `sharp` bzw. `playwright` (z. B. `npm i -D sharp playwright`).
