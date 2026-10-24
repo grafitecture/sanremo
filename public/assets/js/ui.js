@@ -62,10 +62,17 @@ function initScrollSpy() {
   const links = [...document.querySelectorAll('.nav__link[data-nav]')];
   if (!links.length || !('IntersectionObserver' in window)) return;
   const sections = links.map((l) => document.getElementById(l.dataset.nav)).filter(Boolean);
+  let current = null;
+  const mark = (id) => {
+    if (id === current) return;
+    current = id;
+    links.forEach((l) => (l.dataset.nav === id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current')));
+  };
+  // a section that leaves the middle band clears its highlight, so hero, bands and footer show none
   const io = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
-      if (!en.isIntersecting) return;
-      links.forEach((l) => (l.dataset.nav === en.target.id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current')));
+      if (en.isIntersecting) mark(en.target.id);
+      else if (en.target.id === current) mark(null);
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach((sec) => io.observe(sec));
