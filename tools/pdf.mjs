@@ -89,11 +89,11 @@ function menuHtml(lang) {
   @page :first { margin: 0; }
   * { box-sizing: border-box; }
   html, body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body { font-family: RB, sans-serif; font-size: 8.2pt; line-height: 1.4; color: #000; }
+  body { font-family: RB, sans-serif; font-size: 8.2pt; line-height: 1.4; color: #042720; }
   .hand { font-family: PW, cursive; font-weight: 300; }
   .cover { position: relative; width: 210mm; height: 297mm; overflow: hidden; background: #DB042C; color: #fff; break-after: page; }
   .cover__img { position: absolute; left: 0; right: 0; top: 0; height: 64%; background: url(${HERO}) 50% 40% / cover; }
-  .cover__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 45%, rgba(219,4,44,.85) 92%, #DB042C 100%); }
+  .cover__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,39,32,.15) 0%, rgba(4,39,32,0) 45%, rgba(219,4,44,.85) 92%, #DB042C 100%); }
   .cover__body { position: absolute; left: 0; right: 0; bottom: 18mm; text-align: center; }
   .cover__logo { width: 140mm; height: auto; margin: 0 auto 4mm; display: block; }
   .cover__hand { font-size: 15pt; margin: 0 0 7mm; }
@@ -108,27 +108,27 @@ function menuHtml(lang) {
   .sec__h h2 { font-family: LG; font-weight: 400; color: #DB042C; font-size: 34pt; letter-spacing: .08em; text-transform: uppercase; margin: 0; line-height: 1; }
   .sec__h .hand { font-size: 12pt; margin: 2mm 0 0; }
   .sec__h::after { content: ""; display: block; height: 2px; margin: 5mm auto 0; width: 100%;
-    background-image: radial-gradient(circle, rgba(0,0,0,.55) .9px, transparent 1.2px); background-size: 6px 2px; background-repeat: repeat-x; }
+    background-image: radial-gradient(circle, rgba(4,39,32,.55) .9px, transparent 1.2px); background-size: 6px 2px; background-repeat: repeat-x; }
   .grp + .grp { margin-top: 5mm; }
-  .grp h3 { font-family: LG; font-weight: 400; font-size: 17pt; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 1.5pt solid #000; break-after: avoid; }
+  .grp h3 { font-family: LG; font-weight: 400; font-size: 17pt; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 1.5pt solid #042720; break-after: avoid; }
   .grp h3 .hand { font-size: 10pt; letter-spacing: 0; text-transform: none; margin-left: 2mm; }
   .cols { column-count: 2; column-gap: 11mm; }
-  .dish { break-inside: avoid; padding: 1.7mm 0 1.9mm; border-bottom: .5pt solid rgba(0,0,0,.16); }
+  .dish { break-inside: avoid; padding: 1.7mm 0 1.9mm; border-bottom: .5pt solid rgba(4,39,32,.16); }
   .tip { font-family: PW; font-weight: 300; color: #DB042C; font-size: 9pt; margin: 0 0 .5mm; }
   .top { display: flex; align-items: flex-end; gap: 2mm; }
   .nm { font-family: LG; font-size: 12.5pt; letter-spacing: .04em; text-transform: uppercase; color: #DB042C; line-height: 1.05; }
-  .ld { flex: 1; border-bottom: 1.2pt dotted rgba(0,0,0,.4); margin-bottom: 1.4mm; min-width: 4mm; }
+  .ld { flex: 1; border-bottom: 1.2pt dotted rgba(4,39,32,.4); margin-bottom: 1.4mm; min-width: 4mm; }
   .pr { font-family: LG; font-size: 12.5pt; letter-spacing: .03em; line-height: 1.05; white-space: nowrap; }
   .pr + .pr { margin-left: 3mm; }
-  .pr small { font-family: RB; font-size: 7pt; letter-spacing: 0; color: rgba(0,0,0,.6); margin-right: 1mm; }
-  .ds { margin: 1mm 0 0; color: rgba(0,0,0,.72); }
-  .codes { font-size: 7pt; letter-spacing: .05em; color: rgba(0,0,0,.6); white-space: nowrap; }
+  .pr small { font-family: RB; font-size: 7pt; letter-spacing: 0; color: rgba(4,39,32,.6); margin-right: 1mm; }
+  .ds { margin: 1mm 0 0; color: rgba(4,39,32,.72); }
+  .codes { font-size: 7pt; letter-spacing: .05em; color: rgba(4,39,32,.6); white-space: nowrap; }
   .bd { display: inline-flex; flex-wrap: wrap; gap: 1mm; margin-left: 1mm; vertical-align: middle; }
-  .b { display: inline-flex; align-items: center; justify-content: center; min-width: 4.4mm; height: 4.4mm; padding: .3mm 1.2mm 0; border: .8pt solid #000; border-radius: 3mm; font-family: LG; font-size: 8.5pt; line-height: 1; }
+  .b { display: inline-flex; align-items: center; justify-content: center; min-width: 4.4mm; height: 4.4mm; padding: .3mm 1.2mm 0; border: .8pt solid #042720; border-radius: 3mm; font-family: LG; font-size: 8.5pt; line-height: 1; }
   .b--hot { border-color: #DB042C; padding: 0 .8mm; }
   .ico { width: 3.6mm; height: 3.6mm; }
   .lig { display: inline-flex; align-items: center; height: 4.4mm; padding: .4mm 2mm 0; border-radius: 3mm; background: #DB042C; color: #fff; font-family: LG; font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; }
-  .note { font-size: 7pt; color: rgba(0,0,0,.6); align-self: center; }
+  .note { font-size: 7pt; color: rgba(4,39,32,.6); align-self: center; }
   .back { break-before: page; }
   .back h2 { font-family: LG; font-weight: 400; color: #DB042C; font-size: 22pt; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 4mm; }
   .key { display: flex; flex-wrap: wrap; gap: 3mm 8mm; margin: 0 0 8mm; align-items: center; }
@@ -137,13 +137,13 @@ function menuHtml(lang) {
   .lists { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-bottom: 8mm; }
   .lists h3 { font-family: LG; font-weight: 400; font-size: 14pt; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 2mm; }
   .lists ul { list-style: none; padding: 0; margin: 0; }
-  .lists li { display: grid; grid-template-columns: 6mm 1fr; padding: .7mm 0; border-bottom: .5pt solid rgba(0,0,0,.12); }
+  .lists li { display: grid; grid-template-columns: 6mm 1fr; padding: .7mm 0; border-bottom: .5pt solid rgba(4,39,32,.12); }
   .lists b { font-family: LG; font-weight: 400; font-size: 10.5pt; }
-  .fine { color: rgba(0,0,0,.72); margin: 0 0 3mm; }
-  .contact { margin-top: 10mm; padding-top: 6mm; border-top: 1.5pt solid #000; display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; }
+  .fine { color: rgba(4,39,32,.72); margin: 0 0 3mm; }
+  .contact { margin-top: 10mm; padding-top: 6mm; border-top: 1.5pt solid #042720; display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; }
   .contact .logo { width: 60mm; height: auto; }
   .contact p { margin: 0; text-align: right; }
-  .fiction { margin-top: 6mm; font-size: 7pt; color: rgba(0,0,0,.6); text-align: center; }
+  .fiction { margin-top: 6mm; font-size: 7pt; color: rgba(4,39,32,.6); text-align: center; }
   </style></head><body>
   <div class="cover">
     <div class="cover__img"></div>
@@ -197,37 +197,37 @@ function allergenHtml(lang) {
   @page { size: A4 landscape; margin: 11mm 12mm 11mm; }
   * { box-sizing: border-box; }
   html, body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body { font-family: RB, sans-serif; font-size: 7.6pt; line-height: 1.3; color: #000; }
+  body { font-family: RB, sans-serif; font-size: 7.6pt; line-height: 1.3; color: #042720; }
   .hd { display: flex; align-items: flex-end; justify-content: space-between; gap: 10mm; margin-bottom: 5mm; }
   .hd .logo { width: 46mm; height: auto; }
   .hd h1 { font-family: LG; font-weight: 400; font-size: 26pt; letter-spacing: .07em; text-transform: uppercase; color: #DB042C; margin: 0; line-height: 1; }
-  .hd p { margin: 1.5mm 0 0; color: rgba(0,0,0,.7); max-width: 150mm; }
-  .hd .hand { font-family: PW; font-weight: 300; font-size: 10pt; color: #000; margin: 0 0 1mm; }
+  .hd p { margin: 1.5mm 0 0; color: rgba(4,39,32,.7); max-width: 150mm; }
+  .hd .hand { font-family: PW; font-weight: 300; font-size: 10pt; color: #042720; margin: 0 0 1mm; }
   table { width: 100%; border-collapse: collapse; table-layout: fixed; }
   thead { display: table-header-group; }
-  th, td { border-bottom: .5pt solid rgba(0,0,0,.16); padding: .75mm 0; text-align: center; vertical-align: middle; }
-  thead th { border-bottom: 1.5pt solid #000; vertical-align: bottom; font-weight: 400; }
+  th, td { border-bottom: .5pt solid rgba(4,39,32,.16); padding: .75mm 0; text-align: center; vertical-align: middle; }
+  thead th { border-bottom: 1.5pt solid #042720; vertical-align: bottom; font-weight: 400; }
   .c-dish { width: 58mm; text-align: left; padding-right: 2mm; }
   thead .c-dish { font-family: LG; font-size: 11pt; letter-spacing: .06em; text-transform: uppercase; }
   .c-a { width: 8.6mm; height: 27mm; }
-  .c-x { background: rgba(0,0,0,.035); }
+  .c-x { background: rgba(4,39,32,.035); }
   .c-z { width: 20mm; font-size: 7.4pt; }
   thead .c-z { font-family: LG; font-size: 9.5pt; letter-spacing: .05em; text-transform: uppercase; }
   .vh { display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-size: 7.4pt; text-align: left; }
   .vh b { font-family: LG; font-weight: 400; font-size: 10pt; color: #DB042C; }
   tr.sec th { text-align: left; background: #DB042C; color: #fff; font-family: LG; font-weight: 400; font-size: 11pt; letter-spacing: .08em; text-transform: uppercase; padding: 1.2mm 2mm .8mm; border: 0; }
   tbody tr { break-inside: avoid; }
-  tbody td:nth-child(n+16):nth-child(-n+18) { background: rgba(0,0,0,.035); }
+  tbody td:nth-child(n+16):nth-child(-n+18) { background: rgba(4,39,32,.035); }
   .nm { font-family: LG; font-size: 10pt; letter-spacing: .03em; text-transform: uppercase; }
-  td small { color: rgba(0,0,0,.6); font-size: 6.6pt; }
+  td small { color: rgba(4,39,32,.6); font-size: 6.6pt; }
   .dot { display: inline-block; width: 2.4mm; height: 2.4mm; border-radius: 50%; background: #DB042C; vertical-align: middle; }
   .ft { margin-top: 6mm; display: grid; grid-template-columns: 1.1fr 1fr 1.2fr; gap: 8mm; break-inside: avoid; }
   .ft h2 { font-family: LG; font-weight: 400; font-size: 12pt; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 1.5mm; }
   .ft ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 5mm; }
   .ft li { padding: .4mm 0; }
   .ft li b { font-family: LG; font-weight: 400; font-size: 9pt; color: #DB042C; display: inline-block; width: 4.5mm; }
-  .ft p { margin: 0 0 2mm; color: rgba(0,0,0,.75); }
-  .fiction { margin-top: 3mm; font-size: 6.8pt; color: rgba(0,0,0,.6); }
+  .ft p { margin: 0 0 2mm; color: rgba(4,39,32,.75); }
+  .fiction { margin-top: 3mm; font-size: 6.8pt; color: rgba(4,39,32,.6); }
   </style></head><body>
   <div class="hd">
     <div><p class="hand">Ristorante a Mannheim dal 1977</p><h1>${esc(t.acTitle)}</h1><p>${esc(t.acIntro)} <i class="dot" style="vertical-align:-.3mm"></i> = ${esc(t.mark)}</p></div>
