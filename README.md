@@ -45,7 +45,7 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | Englische / italienische Texte | `public/assets/js/i18n.js` (gleicher Schlüssel wie `data-i18n` im HTML) |
 | Gerichte, Preise, Allergene | `public/assets/js/menu-data.js`, danach `node tools/pdf.mjs` |
 | E-Mail-Empfänger für Reservierung und Kontakt | `public/assets/js/booking.js` → `MAIL_TO` |
-| Eckdaten Vermietung (Fläche, Plätze, Miete) | `src/index.html` (Block `keyfacts`) und `aff.*` in `i18n.js` |
+| „Das Haus“: Einleitung und Eckdaten „Auf einen Blick“ (Fläche, Plätze, Laufzeit …) | `src/index.html` (Artikel `#eckdaten` und Block `glance`) und `aff.*` in `i18n.js` |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
 | Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
 | Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |

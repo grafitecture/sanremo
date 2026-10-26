@@ -609,10 +609,26 @@ small { font-size: var(--fs-small); }
 .affitto__title { max-width: 18ch; font-size: var(--fs-h2); letter-spacing: .05em; }
 .affitto__lead { max-width: var(--measure); margin: 0; color: var(--light-2); }
 .affitto__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: var(--space-1); }
-.keyfacts { width: 100%; margin: var(--space-2) 0 0; border-top: 1px solid var(--line); text-align: left; }
-.keyfacts__row { display: grid; grid-template-columns: minmax(7.5rem, 34%) 1fr; gap: 1rem; padding: .7rem 0 .6rem; border-bottom: 1px solid var(--line); }
-.keyfacts dt { font-family: var(--font-head); font-size: var(--fs-h6); line-height: 1.25; letter-spacing: .07em; text-transform: uppercase; color: var(--red); }
-.keyfacts dd { margin: 0; }
+.split__lead { margin: 0 0 1rem; font-family: var(--font-head); font-size: var(--fs-h5); line-height: 1.1; letter-spacing: .05em; text-transform: uppercase; text-wrap: balance; }
+
+/* "Auf einen Blick": the house's key facts, set like the menu (red labels, hairlines, a strong top rule) */
+.glance { padding: var(--space-2) var(--gutter) var(--section); }
+.glance .head { margin-bottom: var(--space-3); padding-inline: 0; }
+.glance__list { display: grid; grid-template-columns: 1fr; column-gap: var(--space-4); max-width: 80rem; margin: 0 auto; border-top: 2px solid var(--ink); }
+.glance__item { display: grid; align-content: start; gap: .3rem; padding: 1rem 0 1.1rem; border-bottom: 1px solid var(--line); }
+.glance__item dt { font-family: var(--font-head); font-size: var(--fs-h6); line-height: 1.2; letter-spacing: .07em; text-transform: uppercase; color: var(--red); }
+.glance__item dd { margin: 0; max-width: 58ch; }
+/* starts flush with the list, but keeps a readable line length */
+.glance__note { max-width: 44rem; margin: var(--space-2) 0 0 max(0px, (100% - 80rem) / 2); font-size: var(--fs-small); color: var(--ink-2); }
+.glance__note span[aria-hidden] { color: var(--red); }
+.glance__cta { display: grid; justify-items: center; gap: .55rem; max-width: 44rem; margin: var(--space-5) auto 0; text-align: center; }
+.glance__cta-title { margin: 0; font-family: var(--font-head); font-size: var(--fs-h4); line-height: 1; letter-spacing: .05em; text-transform: uppercase; color: var(--red); text-wrap: balance; }
+.glance__cta p:not(.glance__cta-title) { margin: 0 0 .65rem; color: var(--ink-2); }
+@media (min-width: 48em) {
+  .glance { padding-top: var(--space-5); }
+  .glance__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .glance__item:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* an odd last fact spans both columns */
+}
 
 .band--room { background: var(--ink); color: #fff; }
 .band__caption { padding: var(--space-4) var(--gutter); }
