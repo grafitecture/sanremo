@@ -2,7 +2,8 @@
 //  - <!--#include name.html-->  inserts src/partials/name.html
 //  - {{asset:/path}}            appends a content hash for cache busting
 //  - <sr-pic id=".." sizes=".." alt=".." alt-key=".." class=".." eager></sr-pic>
-//                               expands to an art-directed <picture> (AVIF + JPEG) from tools/img-manifest.json
+//                               expands to an art-directed <picture> (AVIF + JPEG) from tools/img-manifest.json,
+//                               image URLs carry a content hash too, so a replaced image shows up despite browser caching
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -21,12 +22,11 @@ function includes(html, depth = 0) {
   return html.replace(/<!--#include\s+([\w.-]+)\s*-->/g, (_, name) => includes(fs.readFileSync(path.join(SRC, 'partials', name), 'utf8'), depth + 1));
 }
 
+// /path?v=<first 10 hex chars of the file's sha1>
+const versioned = (p) => `${p}?v=${crypto.createHash('sha1').update(fs.readFileSync(path.join(PUB, p))).digest('hex').slice(0, 10)}`;
+
 function assets(html) {
-  return html.replace(/\{\{asset:([^}]+)\}\}/g, (_, p) => {
-    const file = path.join(PUB, p);
-    const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
-    return `${p}?v=${hash}`;
-  });
+  return html.replace(/\{\{asset:([^}]+)\}\}/g, (_, p) => versioned(p));
 }
 
 function parseAttrs(s) {
@@ -37,7 +37,7 @@ function parseAttrs(s) {
   return out;
 }
 
-const url = (id, v, w, ext) => `/assets/img/${id}-${v}-${w}.${ext}`;
+const url = (id, v, w, ext) => versioned(`/assets/img/${id}-${v}-${w}.${ext}`);
 const srcset = (id, v, files, ext) => files.map((f) => `${url(id, v, f.w, ext)} ${f.w}w`).join(', ');
 
 function picture(a) {
