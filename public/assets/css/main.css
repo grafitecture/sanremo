@@ -674,7 +674,26 @@ small { font-size: var(--fs-small); }
 }
 .affitto__cta .hand { margin: 0; font-size: var(--fs-h5); color: var(--red); }
 .affitto__cta-title { font-size: var(--fs-h2); letter-spacing: .05em; }
-.affitto__cta p:not(.hand) { max-width: 50ch; margin: .5rem 0 0; color: var(--light-2); }
+.affitto__cta > p:not(.hand) { max-width: 50ch; margin: .5rem 0 0; color: var(--light-2); }
+
+/* contact person for the rental: a white business card, labels set like "Auf einen Blick" */
+.contact-card {
+  display: grid; gap: 1.15rem;
+  width: min(100%, 32rem);
+  margin: var(--space-2) 0 var(--space-1);
+  padding: clamp(1.5rem, 1.1rem + 1.8vw, 2.5rem);
+  background: #fff; color: var(--ink);
+  font-style: normal; text-align: left;
+}
+.contact-card p { margin: 0; }
+.contact-card__person { padding-bottom: 1.15rem; border-bottom: 2px dotted var(--line-strong); }
+.contact-card__label { display: block; font-family: var(--font-head); font-size: var(--fs-h6); line-height: 1.2; letter-spacing: .07em; text-transform: uppercase; color: var(--red); }
+.contact-card__name { display: block; margin-top: .3rem; font-family: var(--font-head); font-size: var(--fs-h3); line-height: .95; letter-spacing: .05em; text-transform: uppercase; }
+.contact-card__line { display: flex; align-items: flex-start; gap: .9rem; text-decoration: none; }
+.contact-card__line .icon { width: 1.5rem; height: 1.5rem; margin-top: .05rem; color: var(--red); }
+.contact-card__value { display: block; margin-top: .1rem; font-family: var(--font-head); font-size: var(--fs-h5); line-height: 1.15; letter-spacing: .03em; overflow-wrap: anywhere; }
+.contact-card__tel { white-space: nowrap; }
+a.contact-card__line:hover .contact-card__value { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .15em; }
 
 /* ---------- Prenota / Reservierung ---------- */
 .prenota { display: grid; grid-template-columns: 1fr; background: var(--red); color: #fff; }

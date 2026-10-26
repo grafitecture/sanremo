@@ -46,6 +46,7 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | Gerichte, Preise, Allergene | `public/assets/js/menu-data.js`, danach `node tools/pdf.mjs` |
 | E-Mail-Empfänger für Reservierung und Kontakt | `public/assets/js/booking.js` → `MAIL_TO` |
 | „Das Haus“: Einleitung und Eckdaten „Auf einen Blick“ (Fläche, Plätze, Laufzeit …) | `src/index.html` (Artikel `#eckdaten` und Block `glance`) und `aff.*` in `i18n.js` |
+| Ansprechpartner Vermietung (Eric Schweppe: Telefon, E-Mail) | `src/index.html` (Block `#ansprechpartner` am Ende der Vermietung) und `aff.contact*` in `i18n.js` (EN/IT, inkl. Betreff der E-Mail) |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
 | Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
 | Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |
