@@ -16,6 +16,7 @@ public/                  ← wird 1:1 von Vercel ausgeliefert (siehe vercel.json
     i18n.js              ← Sprachumschalter, EN/IT-Texte (DE steht im HTML)
     menu-data.js         ← Speisekarte + Allergene/Zusatzstoffe (eine Quelle für Seite und PDFs)
     menu.js, booking.js, ui.js, main.js
+    consent.js           ← Cookie-Hinweis, lädt Google Analytics 4 erst nach „Akzeptieren“
   assets/img/            ← responsive Bilder (AVIF + JPEG, Desktop- und Mobil-Zuschnitte)
   assets/fonts/          ← League Gothic SemiCondensed, Roboto, Playwrite IT Trad (lokal, OFL)
   downloads/             ← Speisekarte und Allergenkarte als PDF (DE/EN/IT)
@@ -46,6 +47,8 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | E-Mail-Empfänger für Reservierung und Kontakt | `public/assets/js/booking.js` → `MAIL_TO` |
 | Eckdaten Vermietung (Fläche, Plätze, Miete) | `src/index.html` (Block `keyfacts`) und `aff.*` in `i18n.js` |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
+| Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
+| Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |
 
 ## Breakpoints
 
@@ -68,5 +71,6 @@ Hero: immer 100 % Höhe (`100svh`), Art Direction: 9:16 (Phone hochkant), 3:4 (T
 ## Datenschutz-Hinweise zur Technik
 
 - Reservierung und Kontakt: kein Server, es wird eine E-Mail (mailto) im Programm der Besucher vorbereitet.
-- Karte (OpenStreetMap) lädt erst nach Klick. Schriften lokal. Keine Cookies, kein Tracking.
-- Sprachwahl wird nur im `localStorage` des Browsers gespeichert (`sr-lang`).
+- Karte (OpenStreetMap) lädt erst nach Klick. Schriften lokal.
+- Google Analytics 4 (`G-HHZ2G13CDF`) nur mit Einwilligung: Vor „Akzeptieren“ wird nichts von Google geladen und kein Cookie gesetzt. Google Signale und Werbepersonalisierung sind aus. „Ablehnen“ (auch später über „Cookie-Einstellungen“ im Footer) stoppt die Messung und löscht die `_ga`-Cookies. Im Claude-Artefakt gibt es weder Hinweis noch Tracking.
+- Sprachwahl (`sr-lang`) und Cookie-Entscheidung (`sr-consent`, mit Datum, nach 12 Monaten neue Abfrage) liegen nur im `localStorage` des Browsers.

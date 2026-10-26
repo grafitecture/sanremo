@@ -23,7 +23,7 @@
 <link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=c0d227d4f7">
+<link rel="stylesheet" href="/assets/css/main.css?v=c7098acc6d">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
@@ -87,6 +87,18 @@
 </svg>
 
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Zum Inhalt springen</a>
+<section class="consent" data-consent role="dialog" aria-modal="false" aria-labelledby="consent-title" aria-describedby="consent-text" hidden>
+  <p class="consent__kicker hand" lang="it">Permesso?</p>
+  <p class="consent__title" id="consent-title" data-i18n="consent.title">Cookies &amp; Statistik</p>
+  <p class="consent__text" id="consent-text" data-i18n="consent.text">Mit Ihrer Einwilligung nutzen wir Google Analytics, um zu verstehen, wie unsere Website genutzt wird. Dabei werden Cookies gesetzt und Nutzungsdaten an Google übermittelt, auch in die USA. Ihre Wahl können Sie jederzeit unter „Cookie-Einstellungen“ im Seitenfuß ändern.</p>
+  <p class="consent__links"><a class="consent__more" href="/datenschutz#google-analytics" data-i18n="consent.more" data-i18n-attr="href:consent.moreHref">Mehr zum Datenschutz</a><a href="/impressum" data-i18n="footer.imprint">Impressum</a></p>
+  <div class="dots dots--light" aria-hidden="true"></div>
+  <div class="consent__actions">
+    <button class="btn btn--white" type="button" data-consent-choice="granted" data-i18n="consent.accept">Akzeptieren</button>
+    <button class="btn btn--white" type="button" data-consent-choice="denied" data-i18n="consent.decline">Ablehnen</button>
+  </div>
+</section>
+
 <header class="site-header" data-header>
   <a class="brand" href="/#top" data-i18n-attr="aria-label:a11y.home" aria-label="San Remo, zur Startseite">
     <svg class="brand__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
@@ -667,6 +679,7 @@
     <ul class="footer__legal">
       <li><a href="/impressum" data-i18n="footer.imprint">Impressum</a></li>
       <li><a href="/datenschutz" data-i18n="footer.privacy">Datenschutz</a></li>
+      <li><button class="footer__consent" type="button" data-consent-open data-i18n="footer.consent">Cookie-Einstellungen</button></li>
     </ul>
     <div class="lang lang--footer" role="group" data-i18n-attr="aria-label:a11y.lang" aria-label="Sprache wählen">
       <button class="lang__btn" type="button" data-lang="de" lang="de" aria-pressed="true">DE</button>
@@ -702,6 +715,6 @@
   <button class="lightbox__btn lightbox__btn--close" type="button" data-lightbox-close><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only" data-i18n="a11y.close">Schließen</span></button>
 </dialog>
 
-<script type="module" src="/assets/js/main.js?v=56824f4f4b"></script>
+<script type="module" src="/assets/js/main.js?v=1cacb15e10"></script>
 </body>
 </html>
