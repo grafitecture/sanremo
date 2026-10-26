@@ -28,6 +28,7 @@
 /* ---------- Tokens ---------- */
 :root {
   --red: #DB042C;
+  --red-rgb: 219, 4, 44;
   --red-dark: #B00323;
   --ink: #042720;          /* dark green, replaces black everywhere (text, surfaces, lines, scrims) */
   --ink-rgb: 4, 39, 32;
@@ -289,7 +290,8 @@ small { font-size: var(--fs-small); }
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
     linear-gradient(180deg, rgba(var(--ink-rgb), .5) 0%, rgba(var(--ink-rgb), 0) 20%),
-    linear-gradient(0deg, rgba(var(--ink-rgb), .82) 0%, rgba(var(--ink-rgb), .38) 36%, rgba(var(--ink-rgb), 0) 60%);
+    /* lower edge fades into brand red, as on the menu PDF cover */
+    linear-gradient(0deg, var(--red) 0%, rgba(var(--red-rgb), .86) 12%, rgba(var(--red-rgb), .42) 34%, rgba(var(--red-rgb), 0) 58%);
 }
 .hero__content {
   position: absolute; inset: auto 0 0; z-index: 1;
