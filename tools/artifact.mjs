@@ -26,7 +26,7 @@ function relUrls(html, page) {
     .replace(/\?v=[0-9a-f]{10}/g, '')
     .replace(/(["'\s,(])\/(assets|downloads)\//g, '$1$2/')
     .replace(/href="\/#/g, `href="${home}#`)
-    .replace(/href="\/"/g, page === 'index' ? 'href="#top"' : 'href="index.html"')
+    .replace(/href="(?:https:\/\/www\.sanremo\.ma)?\/"/g, page === 'index' ? 'href="#top"' : 'href="index.html"')
     .replace(/href="\/(impressum|datenschutz)(#[^"]*)?"/g, (_, p, h) => `href="${p}.html${h || ''}"`);
 }
 const stripHeadExtras = (html) => html
