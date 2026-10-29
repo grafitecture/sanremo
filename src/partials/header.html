@@ -1,3 +1,10 @@
+<aside class="fiction fiction--top" data-fiction data-i18n-attr="aria-label:a11y.fiction" aria-label="Hinweis">
+  <p class="fiction__text" data-i18n="fiction.note">Diese Webseite dient zur reinen Darstellung und ist fiktiv.</p>
+</aside>
+<script>
+  /* Störer und Hero teilen sich den ersten Bildschirm: Höhe des Störers vor dem ersten Rendern setzen (ui.js hält sie aktuell) */
+  (function (b) { if (b) document.documentElement.style.setProperty('--fiction-h', b.getBoundingClientRect().height + 'px'); })(document.querySelector('[data-fiction]'));
+</script>
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Zum Inhalt springen</a>
 <!--#include consent.html-->
 <header class="site-header" data-header>

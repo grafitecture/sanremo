@@ -23,7 +23,7 @@
 <link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=5a9c78f8d4">
+<link rel="stylesheet" href="/assets/css/main.css?v=a466e52000">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
@@ -72,6 +72,13 @@
   <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="15" rx="2.5"/><path d="M4.5 11h15M4.5 7h15M7.5 18.5V21M16.5 18.5V21"/><circle cx="8" cy="14.8" r=".7" fill="currentColor"/><circle cx="16" cy="14.8" r=".7" fill="currentColor"/></symbol>
 </svg>
 
+<aside class="fiction fiction--top" data-fiction data-i18n-attr="aria-label:a11y.fiction" aria-label="Hinweis">
+  <p class="fiction__text" data-i18n="fiction.note">Diese Webseite dient zur reinen Darstellung und ist fiktiv.</p>
+</aside>
+<script>
+  /* Störer und Hero teilen sich den ersten Bildschirm: Höhe des Störers vor dem ersten Rendern setzen (ui.js hält sie aktuell) */
+  (function (b) { if (b) document.documentElement.style.setProperty('--fiction-h', b.getBoundingClientRect().height + 'px'); })(document.querySelector('[data-fiction]'));
+</script>
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Zum Inhalt springen</a>
 <section class="consent" data-consent role="dialog" aria-modal="false" aria-labelledby="consent-title" aria-describedby="consent-text" hidden>
   <p class="consent__kicker hand" lang="it">Permesso?</p>
@@ -272,7 +279,9 @@
       <button class="lang__btn" type="button" data-lang="it" lang="it" aria-pressed="false">IT</button>
     </div>
   </div>
-  <p class="footer__fiction" data-i18n="footer.fiction">Diese Webseite dient zur reinen Darstellung und ist fiktiv.</p>
+  <div class="fiction fiction--bottom">
+    <p class="fiction__text" data-i18n="fiction.note">Diese Webseite dient zur reinen Darstellung und ist fiktiv.</p>
+  </div>
 </footer>
 
 <script type="module" src="/assets/js/main.js?v=1cacb15e10"></script>

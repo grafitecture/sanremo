@@ -47,6 +47,7 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | E-Mail-Empfänger für Reservierung und Kontakt | `public/assets/js/booking.js` → `MAIL_TO` |
 | „Das Haus“: Einleitung und Eckdaten „Auf einen Blick“ (Fläche, Plätze, Laufzeit …) | `src/index.html` (Artikel `#eckdaten` und Block `glance`) und `aff.*` in `i18n.js` |
 | Ansprechpartner Vermietung (Eric Schweppe: Telefon, E-Mail) | `src/index.html` (Block `#ansprechpartner` am Ende der Vermietung) und `aff.contact*` in `i18n.js` (EN/IT, inkl. Betreff der E-Mail) |
+| Störer „Diese Webseite dient zur reinen Darstellung und ist fiktiv.“ (rotes Band ganz oben und ganz unten auf jeder Seite) | `src/partials/header.html` (oben) und `src/partials/footer.html` (unten), EN/IT unter `fiction.note` in `i18n.js`, Gestaltung `.fiction` in `main.css` |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
 | Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
 | Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |
@@ -61,7 +62,8 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | 90em / 1440 px | Desktop | Typo-Skala erreicht Vorgabewerte, wächst danach bis 2560 px weiter |
 | 120em / 1920 px | große Screens | Social-Feed in einer Reihe |
 
-Hero: immer 100 % Höhe (`100svh`), Art Direction: 9:16 (Phone hochkant), 3:4 (Tablet hochkant), 4:3 (quer).
+Hero: füllt zusammen mit dem Störer darüber immer 100 % der Höhe (`100svh` minus `--fiction-h`, die Höhe des Störers misst ein kleines Skript in `header.html`, `ui.js` hält sie aktuell), Art Direction: 9:16 (Phone hochkant), 3:4 (Tablet hochkant), 4:3 (quer).
+Der Header ist `sticky`: Er steht unter dem Störer und dockt beim Scrollen oben an.
 
 ## Deployment (GitHub → Vercel)
 

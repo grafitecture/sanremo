@@ -18,12 +18,23 @@ export function toast(msg, ms = 4200) {
   toastTimer = setTimeout(() => { el.hidden = true; }, ms);
 }
 
-/* header: transparent over the hero, solid afterwards */
+/* notice band ("Störer") at the top: its height lives in --fiction-h, so band and hero fill the first screen together.
+   header.html sets it before the first render; this keeps it current (font swap, language, viewport width) */
+function initFiction() {
+  const band = document.querySelector('[data-fiction]');
+  if (!band) return;
+  const set = () => document.documentElement.style.setProperty('--fiction-h', `${band.getBoundingClientRect().height}px`);
+  if ('ResizeObserver' in window) new ResizeObserver(set).observe(band);
+  else window.addEventListener('resize', set);
+  set();
+}
+
+/* header: transparent over the hero, solid once the hero has passed beneath it */
 function initHeader() {
   const header = document.querySelector('[data-header]');
   const hero = document.querySelector('.hero');
   if (!header || !hero) return;
-  const update = () => header.classList.toggle('is-solid', window.scrollY > hero.offsetHeight - header.offsetHeight - 2);
+  const update = () => header.classList.toggle('is-solid', hero.getBoundingClientRect().bottom < header.getBoundingClientRect().bottom + 2);
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
@@ -182,6 +193,7 @@ function initBottomBar() {
 }
 
 export function initUI() {
+  initFiction();
   initHeader();
   initOverlay();
   initScrollSpy();

@@ -64,10 +64,15 @@
   --section: clamp(4.5rem, 2.8rem + 7.5vw, 10rem);
   --measure: 62ch;
 
-  --header-h: calc(4.25rem + env(safe-area-inset-top, 0px));   /* the fixed header also covers a phone's status-bar inset */
+  --header-h: calc(4.25rem + env(safe-area-inset-top, 0px));   /* the header also covers a phone's status-bar inset */
+  /* height of the notice band at the top: header.html and ui.js measure it; this is only the fallback without JS (one line, two on small phones) */
+  --fiction-h: calc(var(--fs-h6) * 1.2 + 1.25rem + env(safe-area-inset-top, 0px));
   --tabs-h: 4.6rem;
   --bottombar-h: calc(3.5rem + env(safe-area-inset-bottom, 0px));
   --ease: cubic-bezier(.2, .7, .2, 1);
+}
+@media (max-width: 23.99em) {
+  :root { --fiction-h: calc(var(--fs-h6) * 2.4 + 1.25rem + env(safe-area-inset-top, 0px)); }
 }
 @media (min-width: 64em) {
   :root { --header-h: calc(5.5rem + env(safe-area-inset-top, 0px)); --tabs-h: 5rem; --bottombar-h: 0px; }
@@ -203,10 +208,35 @@ small { font-size: var(--fs-small); }
 .btn--text { --btn-fg: inherit; padding-inline: .4em; text-decoration: underline; text-underline-offset: .3em; }
 .btn--wide { width: 100%; }
 
+/* ---------- Notice band ("Störer"): the first and the last thing on every page ---------- */
+/* "Diese Webseite dient zur reinen Darstellung und ist fiktiv." – above the header and as the end of the footer */
+.fiction {
+  padding: .7rem var(--gutter) .55rem;
+  background: var(--red); color: #fff;
+  text-align: center;
+}
+.fiction__text {
+  max-width: 60rem; margin: 0 auto;
+  font-family: var(--font-head); font-size: var(--fs-h6); line-height: 1.2;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-wrap: balance;
+}
+.fiction--top { padding-top: calc(.7rem + env(safe-area-inset-top, 0px)); }
+/* full width inside the footer; it keeps the end of the page clear of the home indicator, the bottom bar
+   (homepage on phones) and the open cookie notice (--consent-space, set by consent.js) */
+.fiction--bottom {
+  margin-inline: calc(-1 * var(--gutter));
+  padding-bottom: calc(.55rem + max(env(safe-area-inset-bottom, 0px), var(--fiction-bar, 0px), var(--consent-space, 0px)));
+}
+.page--home .fiction--bottom { --fiction-bar: var(--bottombar-h); }
+
 /* ---------- Header ---------- */
+/* sticky, not fixed: it starts below the notice band and docks at the top once the band has scrolled away;
+   the negative margin lets the hero and the legal pages run underneath it as before */
 .site-header {
-  position: fixed; inset: 0 0 auto; z-index: 60;
+  position: sticky; top: 0; z-index: 60;
   height: var(--header-h);
+  margin-bottom: calc(-1 * var(--header-h));
   display: flex; align-items: center; gap: var(--space-2);
   padding: env(safe-area-inset-top, 0px) var(--gutter) 0;
   color: #fff;
@@ -276,10 +306,10 @@ small { font-size: var(--fs-small); }
 .lang--overlay { margin-top: .5rem; gap: .75rem; }
 .lang--overlay .lang__btn { padding-inline: 0; }
 
-/* ---------- Hero (always 100 % of the viewport) ---------- */
+/* ---------- Hero (always 100 % of the viewport, together with the notice band above it) ---------- */
 .hero {
   position: relative; isolation: isolate;
-  height: 100vh; height: 100svh;
+  height: calc(100vh - var(--fiction-h)); height: calc(100svh - var(--fiction-h));
   min-height: 26rem;
   overflow: hidden;
   background: var(--ink); color: #fff;
@@ -915,8 +945,8 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
 
 /* ---------- Footer ---------- */
 .site-footer .dots { margin-inline: 0; }
-/* --consent-space: set by consent.js while the cookie notice is open, so the end of the footer can still scroll above it */
-.site-footer { padding: var(--space-5) var(--gutter) calc(var(--space-3) + max(var(--bottombar-h), var(--consent-space, 0px))); background: var(--ink); color: #fff; }
+/* the footer ends with the notice band, which keeps the end of the page clear of the bottom bar and the cookie notice */
+.site-footer { padding: var(--space-5) var(--gutter) 0; background: var(--ink); color: #fff; }
 .footer__brand { display: grid; justify-items: center; gap: .5rem; margin-bottom: var(--space-4); text-align: center; }
 .footer__logo { width: clamp(12rem, 7rem + 24vw, 32rem); height: auto; aspect-ratio: 2082 / 486; fill: var(--red); }
 .footer__brand .hand { margin: 0; font-size: var(--fs-h5); }
@@ -929,7 +959,7 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
 .footer__col--social .social-icons { justify-content: center; margin-bottom: .75rem; }
 .footer__bottom {
   display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem 1.5rem;
-  padding-top: var(--space-3);
+  padding-block: var(--space-3);
   font-size: var(--fs-small); color: var(--light-3);
 }
 .footer__bottom p { margin: 0; }
@@ -941,7 +971,6 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
 }
 [data-consent-open][hidden] { display: none !important; }   /* hidden in the Claude artifact preview */
 .lang--footer .lang__btn { font-size: 1.05rem; min-height: 2.5rem; }
-.footer__fiction { margin: var(--space-3) 0 0; text-align: center; font-size: var(--fs-small); color: var(--light-3); }
 @media (min-width: 40em) { .footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64em) {
   .footer__cols { grid-template-columns: repeat(5, minmax(0, 1fr)); text-align: left; }
@@ -991,7 +1020,7 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
   --consent-bar: 0px; --consent-gap: 0px;
   position: fixed; left: 0; right: 0; bottom: calc(var(--consent-bar) + var(--consent-gap)); z-index: 65;
   display: grid; gap: .55rem;
-  max-height: calc(100svh - var(--header-h) - var(--consent-bar) - var(--consent-gap));
+  max-height: calc(100svh - var(--fiction-h) - var(--header-h) - var(--consent-bar) - var(--consent-gap));
   overflow-y: auto; overscroll-behavior: contain;
   padding: var(--space-2) var(--gutter) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
   border-top: 4px solid var(--red);
@@ -1038,7 +1067,7 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
 .legal__back { margin-top: var(--space-4); }
 
 /* ---------- 404 ---------- */
-.page--404 main { display: grid; place-items: center; min-height: 100svh; padding: var(--header-h) var(--gutter) var(--space-5); text-align: center; }
+.page--404 main { display: grid; place-items: center; min-height: calc(100svh - var(--fiction-h)); padding: var(--header-h) var(--gutter) var(--space-5); text-align: center; }
 .page--404 .hand { font-size: var(--fs-h3); color: var(--red); margin: 0; }
 
 /* ---------- Motion & print ---------- */
