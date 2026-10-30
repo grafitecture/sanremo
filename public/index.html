@@ -23,7 +23,7 @@
 <link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=a466e52000">
+<link rel="stylesheet" href="/assets/css/main.css?v=a30a6189da">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
@@ -665,6 +665,27 @@
       <li><a class="feed__item" href="#social" data-demo-social><picture class="pic feed__img" style="--pic-bg:#ad2c38"><source type="image/avif" srcset="/assets/img/ig-6-sq-400.avif?v=0ac4615878 400w, /assets/img/ig-6-sq-640.avif?v=da10f95f7c 640w, /assets/img/ig-6-sq-800.avif?v=6e842f54a8 800w" sizes="(min-width: 90em) 16.7vw, (min-width: 48em) 33.3vw, 50vw"><img src="/assets/img/ig-6-sq-640.jpg?v=7f2d493f5a" srcset="/assets/img/ig-6-sq-400.jpg?v=2429282840 400w, /assets/img/ig-6-sq-640.jpg?v=7f2d493f5a 640w, /assets/img/ig-6-sq-800.jpg?v=5085bd6d05 800w" sizes="(min-width: 90em) 16.7vw, (min-width: 48em) 33.3vw, 50vw" width="800" height="800" alt="Roter Tisch in rotem Licht" data-i18n-attr="alt:alt.ig6" loading="lazy" decoding="async"></picture><span class="feed__likes"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>287</span></a></li>
     </ul>
     <p class="social__note" data-i18n="social.note">Die Profile sind fiktiv und dienen nur der Darstellung.</p>
+  </section>
+
+  <!-- EXPOSÉ: Download am Ende der Seite, Neonschrift und Neonpfeil zeigen auf den Button (PDF: node tools/expose.mjs) -->
+  <section class="expose" id="expose" aria-labelledby="expose-title">
+    <picture class="pic expose__bg" style="--pic-bg:#791723"><source type="image/avif" media="(max-width: 47.99em)" srcset="/assets/img/gastraum-mob-480.avif?v=a98ec53df4 480w, /assets/img/gastraum-mob-720.avif?v=66f5fda627 720w, /assets/img/gastraum-mob-960.avif?v=134153d001 960w, /assets/img/gastraum-mob-1229.avif?v=3c15073279 1229w" sizes="100vw" width="1229" height="1536"><source type="image/jpeg" media="(max-width: 47.99em)" srcset="/assets/img/gastraum-mob-480.jpg?v=3cbe8d40ce 480w, /assets/img/gastraum-mob-720.jpg?v=e97100bdca 720w, /assets/img/gastraum-mob-960.jpg?v=1571741610 960w, /assets/img/gastraum-mob-1229.jpg?v=7b6908a144 1229w" sizes="100vw" width="1229" height="1536"><source type="image/avif" srcset="/assets/img/gastraum-wide-1280.avif?v=8c305ec48c 1280w, /assets/img/gastraum-wide-1600.avif?v=e21087d1a6 1600w, /assets/img/gastraum-wide-2048.avif?v=783f049d79 2048w, /assets/img/gastraum-wide-2304.avif?v=27fcefeaa8 2304w" sizes="100vw"><img src="/assets/img/gastraum-wide-1600.jpg?v=fb59ece436" srcset="/assets/img/gastraum-wide-1280.jpg?v=199bf7327e 1280w, /assets/img/gastraum-wide-1600.jpg?v=fb59ece436 1600w, /assets/img/gastraum-wide-2048.jpg?v=9a640c2a9c 2048w, /assets/img/gastraum-wide-2304.jpg?v=6aed84c4f0 2304w" sizes="100vw" width="2304" height="987" alt="" loading="lazy" decoding="async"></picture>
+    <header class="head expose__head">
+      <h2 class="head__title" id="expose-title" data-i18n="expo.title">Das Exposé zum Download</h2>
+      <p class="head__hand hand" lang="it">tutto in un PDF</p>
+      <p class="head__lead" data-i18n="expo.lead">Eckdaten, Objektbeschreibung, Ausstattung, Lage und 48 Fotos der Gastronomieräume in der Beilstraße 3 – in einem PDF zum Speichern, Ausdrucken und Weitergeben.</p>
+    </header>
+    <div class="expose__cta">
+      <p class="neon expose__neon" aria-hidden="true" data-i18n="expo.neon">Hier gibt’s das Exposé!</p>
+      <span class="expose__arrow" aria-hidden="true">
+        <svg class="neon-arrow" viewBox="0 0 48 114" focusable="false"><path d="M18 6C2 40 10 80 42 108M36.2 90.9L42 108l-17.7-3.5"/></svg>
+      </span>
+      <a class="download download--neon" href="/downloads/San-Remo-Expose-Beilstrasse-3.pdf" download="San-Remo-Expose-Beilstrasse-3.pdf" data-pdf-file>
+        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+        <span class="download__title" data-i18n="expo.dl">Exposé-Download-PDF</span>
+        <span class="download__meta" data-i18n="expo.meta">PDF, Deutsch · 13 Seiten · 5,5 MB</span>
+      </a>
+    </div>
   </section>
 
 </main>

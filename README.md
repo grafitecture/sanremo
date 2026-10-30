@@ -19,9 +19,10 @@ public/                  ← wird 1:1 von Vercel ausgeliefert (siehe vercel.json
     consent.js           ← Cookie-Hinweis, lädt Google Analytics 4 erst nach „Akzeptieren“
   assets/img/            ← responsive Bilder (AVIF + JPEG, Desktop- und Mobil-Zuschnitte)
   assets/fonts/          ← League Gothic SemiCondensed, Roboto, Playwrite IT Trad (lokal, OFL)
-  downloads/             ← Speisekarte und Allergenkarte als PDF (DE/EN/IT)
+  downloads/             ← Speisekarte und Allergenkarte als PDF (DE/EN/IT), Exposé der Vermietung (DE)
 src/                     ← HTML-Quellen + Partials (Header, Footer, Icons)
 tools/                   ← Build-Skripte
+  expose/                ← Texte (content.mjs) und Fotos des Exposés
 ```
 
 ## Befehle
@@ -29,6 +30,7 @@ tools/                   ← Build-Skripte
 ```bash
 node tools/build.mjs     # src/*.html -> public/*.html (Partials, Bilder, Cache-Busting)
 node tools/pdf.mjs       # PDFs neu erzeugen (nach Änderungen an menu-data.js)
+node tools/expose.mjs    # Exposé-PDF neu erzeugen (nach Änderungen an tools/expose/content.mjs)
 node tools/images.mjs <rot-ordner> <solide-ordner>   # Bilder neu rechnen (ONLY=hero,neon für einzelne)
 python3 tools/fonts.py   # Schriften neu subsetten (WOFF2)
 python3 tools/grade.py <BILDER_ROT> <ziel>            # Rottöne exakt auf #DB042C anpassen
@@ -48,6 +50,7 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | „Das Haus“: Einleitung und Eckdaten „Auf einen Blick“ (Fläche, Plätze, Laufzeit …) | `src/index.html` (Artikel `#eckdaten` und Block `glance`) und `aff.*` in `i18n.js` |
 | Ansprechpartner Vermietung (Eric Schweppe: Telefon, E-Mail) | `src/index.html` (Block `#ansprechpartner` am Ende der Vermietung) und `aff.contact*` in `i18n.js` (EN/IT, inkl. Betreff der E-Mail) |
 | Störer „Diese Webseite dient zur reinen Darstellung und ist fiktiv.“ (rotes Band ganz oben und ganz unten auf jeder Seite) | `src/partials/header.html` (oben) und `src/partials/footer.html` (unten), EN/IT unter `fiction.note` in `i18n.js`, Gestaltung `.fiction` in `main.css` |
+| Exposé (PDF-Download am Ende der Seite mit Neonschrift und Neonpfeil) | Texte, Eckdaten und Bildunterschriften in `tools/expose/content.mjs`, Fotos in `tools/expose/photos/`, danach `node tools/expose.mjs` → `public/downloads/San-Remo-Expose-Beilstrasse-3.pdf`. Seitenzahl und Größe im Button stehen in `src/index.html` (Block `#expose`) und unter `expo.meta` in `i18n.js`, Gestaltung `.expose`, `.neon` in `main.css` |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
 | Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
 | Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |
