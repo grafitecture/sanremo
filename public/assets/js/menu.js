@@ -95,9 +95,9 @@ function updatePdfLinks() {
 }
 
 /* Inside a Claude artifact plain download links are inert: hand the PDF to the viewer's save dialog instead.
-   a[data-pdf]: menu PDFs per language; a[data-pdf-file]: one fixed file (the exposé at the end of the page). */
+   a[data-pdf]: menu PDFs per language. */
 async function savePdf(e) {
-  const a = e.target.closest('a[data-pdf], a[data-pdf-file]');
+  const a = e.target.closest('a[data-pdf]');
   if (!a) return;
   e.preventDefault();
   const downloads = await window.claude.use('downloads').catch(() => null);
@@ -168,6 +168,6 @@ export function initMenu() {
     select(ids[i], { focus: true });
   });
   document.addEventListener('langchange', render);
-  if (inClaude()) [root, document.querySelector('#expose')].forEach((el) => el?.addEventListener('click', savePdf));
+  if (inClaude()) root.addEventListener('click', savePdf);
   render();
 }

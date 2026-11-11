@@ -1,9 +1,10 @@
 # San Remo – Ristorante a Mannheim dal 1977
 
-Website **sanremo.ma** – Restaurantkonzept und Vermietung der Räume Beilstraße 3, 68159 Mannheim-Jungbusch
-(Schweppe & Schweppe KG). Statische Seite ohne Framework, ausgeliefert über **Vercel**.
+Website **sanremo.ma** – Restaurantkonzept und Vermietung der Räume Beilstraße 3, 68159 Mannheim-Jungbusch.
+Herausgeberin (Impressum, Datenschutz): **Grafitecture GmbH**, Mannheim. „San Remo Mannheim – Ristorante a Mannheim dal 1977“
+ist eine Marke der Grafitecture GmbH. Statische Seite ohne Framework, ausgeliefert über **Vercel**.
 
-> Diese Webseite dient zur reinen Darstellung und ist fiktiv.
+> Diese Webseite ist rein fiktiv und dient nur zur Anschauung. Herausgegeben von der Grafitecture GmbH.
 
 ## Aufbau
 
@@ -19,10 +20,10 @@ public/                  ← wird 1:1 von Vercel ausgeliefert (siehe vercel.json
     consent.js           ← Cookie-Hinweis, lädt Google Analytics 4 erst nach „Akzeptieren“
   assets/img/            ← responsive Bilder (AVIF + JPEG, Desktop- und Mobil-Zuschnitte)
   assets/fonts/          ← League Gothic SemiCondensed, Roboto, Playwrite IT Trad (lokal, OFL)
-  downloads/             ← Speisekarte und Allergenkarte als PDF (DE/EN/IT), Exposé der Vermietung (DE)
+  downloads/             ← Speisekarte und Allergenkarte als PDF (DE/EN/IT)
 src/                     ← HTML-Quellen + Partials (Header, Footer, Icons)
 tools/                   ← Build-Skripte
-  expose/                ← Texte (content.mjs) und Fotos des Exposés
+  expose/                ← Texte (content.mjs) und Fotos des Exposés (seit 11.11.2026 nicht mehr auf der Website)
 kit/grafitecture-credit/ ← Grafitecture-Feld (Kit v1.2, unverändert aus grafitecture/lannee_webseite, README dort)
 ```
 
@@ -39,7 +40,7 @@ Schrift und Logo #435960, Linie weiß, höchstens 403 px breit. Farben und Grö�
 ```bash
 node tools/build.mjs     # src/*.html -> public/*.html (Partials, Bilder, Cache-Busting, Grafitecture-Feld + dessen CSS in main.css)
 node tools/pdf.mjs       # PDFs neu erzeugen (nach Änderungen an menu-data.js)
-node tools/expose.mjs    # Exposé-PDF neu erzeugen (nach Änderungen an tools/expose/content.mjs)
+node tools/expose.mjs    # Exposé-PDF erzeugen, nur noch nach dist-expose/ (nicht auf der Website, nicht im Repo)
 node tools/images.mjs <rot-ordner> <solide-ordner>   # Bilder neu rechnen (ONLY=hero,neon für einzelne)
 python3 tools/fonts.py   # Schriften neu subsetten (WOFF2)
 python3 tools/grade.py <BILDER_ROT> <ziel>            # Rottöne exakt auf #DB042C anpassen
@@ -58,9 +59,10 @@ node tools/artifact.mjs  # Kopie für ein Claude-Artefakt in dist-artifact/ (rel
 | E-Mail-Empfänger für Reservierung und Kontakt | `public/assets/js/booking.js` → `MAIL_TO` |
 | „Das Haus“: Einleitung und Eckdaten „Auf einen Blick“ (Fläche, Plätze, Laufzeit …) | `src/index.html` (Artikel `#eckdaten` und Block `glance`) und `aff.*` in `i18n.js` |
 | Ansprechpartner Vermietung (Eric Schweppe: Telefon, E-Mail) | `src/index.html` (Block `#ansprechpartner` am Ende der Vermietung) und `aff.contact*` in `i18n.js` (EN/IT, inkl. Betreff der E-Mail) |
-| Störer „Diese Webseite dient zur reinen Darstellung und ist fiktiv.“ (rotes Band ganz oben und ganz unten auf jeder Seite) | `src/partials/header.html` (oben) und `src/partials/footer.html` (unten), EN/IT unter `fiction.note` in `i18n.js`, Gestaltung `.fiction` in `main.css` |
-| Exposé (PDF-Download am Ende der Seite mit Neonschrift und Neonpfeil) | Texte, Eckdaten und Bildunterschriften in `tools/expose/content.mjs`, Fotos in `tools/expose/photos/`, danach `node tools/expose.mjs` → `public/downloads/San-Remo-Expose-Beilstrasse-3.pdf`. Seitenzahl und Größe im Button stehen in `src/index.html` (Block `#expose`) und unter `expo.meta` in `i18n.js`, Gestaltung `.expose`, `.neon` in `main.css` |
+| Störer „Diese Webseite ist rein fiktiv und dient nur zur Anschauung. Herausgegeben von der Grafitecture GmbH.“ (rotes Band ganz oben und ganz unten auf jeder Seite; ab 720 px einzeilig, darunter zwei, unter 364 px drei Zeilen) | `src/partials/header.html` (oben) und `src/partials/footer.html` (unten), EN/IT unter `fiction.note` in `i18n.js`, Gestaltung `.fiction` in `main.css` |
+| Exposé | Seit 11.11.2026 nicht mehr auf der Website (Abschnitt, Styles, Texte und PDF entfernt). Der Generator bleibt: `tools/expose/content.mjs`, Fotos in `tools/expose/photos/`, `node tools/expose.mjs` → `dist-expose/` |
 | Grafitecture-Feld (Lime-Fläche mit Logo, „Marken mit KI.“, Link auf https://www.grafitecture.de/ in neuem Fenster), letztes Element in Impressum und Datenschutz, je Sprachblock | Platzhalter `<!--#gt-credit de-->` (bzw. `en`, `it`) in `src/impressum.html` und `src/datenschutz.html`; `tools/build.mjs` setzt `grafitectureCredit(sprache)` aus `kit/grafitecture-credit/grafitecture-credit.mjs` ein und kopiert `grafitecture-credit.css` unverändert als letzten Block in `main.css` (zwischen den Markern, dort nichts von Hand ändern). Italienisch kennt das Kit nicht, dort erscheint das Feld auf Englisch. Neue Kit-Version: Ordner `kit/grafitecture-credit/` ersetzen, `node tools/build.mjs` |
+| Impressum und Datenschutz (Grafitecture GmbH, Stand 11.11.2026) | `src/impressum.html`, `src/datenschutz.html` (DE/EN/IT in einer Datei), danach `node tools/build.mjs` |
 | Suchmaschinen freischalten | `<meta name="robots" content="noindex, follow">` in `src/*.html` entfernen |
 | Google-Analytics-ID | `public/assets/js/consent.js` → `GA_ID` (derzeit `G-HHZ2G13CDF`); Cookie-Hinweis in `src/partials/consent.html`, EN/IT unter `consent.*` in `i18n.js` |
 | Alle erneut um Einwilligung bitten (z. B. neuer Dienst) | `VERSION` in `public/assets/js/consent.js` erhöhen und Datenschutzerklärung anpassen |

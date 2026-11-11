@@ -1,5 +1,6 @@
 // Generates the rental exposé PDF in the style of the website from tools/expose/content.mjs
-// Usage: node tools/expose.mjs   ->  public/downloads/San-Remo-Expose-Beilstrasse-3.pdf
+// Usage: node tools/expose.mjs   ->  dist-expose/San-Remo-Expose-Beilstrasse-3.pdf
+// Since 11.11.2026 the exposé is no longer on the website, so the PDF goes to dist-expose/ (not served, not committed).
 // Every page is a fixed A4 sheet; the script stops if any content overflows its page.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +13,7 @@ const { chromium } = require('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
 const PUB = path.join(here, '..', 'public');
 const PHOTOS = path.join(here, 'expose', 'photos');
-const OUT = path.join(PUB, 'downloads', META.file);
+const OUT = path.join(PUB, '..', 'dist-expose', META.file);
 
 const b64 = (f) => fs.readFileSync(f).toString('base64');
 const FONTS = `
