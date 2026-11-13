@@ -2,6 +2,15 @@
 <html lang="de" data-lang="de">
 <head>
 <!--#include head.html-->
+<script>
+  /* Startbildschirm mit dem Schalter (assets/js/schalter.js): vor dem ersten Rendern zeigen, nur wo Module laufen.
+     Läuft schalter.js nicht, gibt sich die Seite beim Laden selbst frei. */
+  (function (d) {
+    if (!('noModule' in HTMLScriptElement.prototype)) return;
+    d.classList.add('sr-off');
+    window.addEventListener('load', function () { if (!window.srSwitch) d.classList.remove('sr-off'); });
+  })(document.documentElement);
+</script>
 <title data-i18n="meta.title">San Remo – Ristorante a Mannheim dal 1977 | Italienisches Restaurant im Jungbusch</title>
 <meta name="description" data-i18n-attr="content:meta.desc" content="Italienisches Restaurant im Mannheimer Jungbusch seit 1977: Pizza, Pasta und ligurische Spezialitäten, Do, Fr und Sa ab 18 Uhr. Das San Remo ist zu vermieten – Räume und Konzept ansehen.">
 <meta name="robots" content="noindex, follow">
@@ -23,6 +32,7 @@
 </head>
 <body id="top" class="page page--home">
 <!--#include sprite.html-->
+<!--#include schalter.html-->
 <!--#include header.html-->
 
 <main id="main">

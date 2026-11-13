@@ -1,9 +1,11 @@
+import { initSwitch } from './schalter.js';
 import { initI18n } from './i18n.js';
 import { initUI } from './ui.js';
 import { initMenu } from './menu.js';
 import { initBooking, initContact } from './booking.js';
 import { initConsent } from './consent.js';
 
+initSwitch(); // start screen with the old switch (homepage only)
 initUI();
 initMenu();
 initBooking();

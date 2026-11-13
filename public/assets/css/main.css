@@ -1073,13 +1073,69 @@ a.cline:hover .cline__text { text-decoration: underline; text-decoration-thickne
 .page--404 main { display: grid; place-items: center; min-height: calc(100svh - var(--fiction-h)); padding: var(--header-h) var(--gutter) var(--space-5); text-align: center; }
 .page--404 .hand { font-size: var(--fs-h3); color: var(--red); margin: 0; }
 
+/* ---------- Start screen ("Schalter", homepage only) ---------- */
+/* logo in white on red and an old toggle switch set to SPENTO; switching on shows the site (assets/js/schalter.js).
+   html.sr-off is set by a script in the <head> of index.html before the first render; without JavaScript the screen never shows */
+.splash {
+  position: fixed; inset: 0; z-index: 200;
+  display: none; flex-direction: column;
+  background: var(--red); color: #fff;
+}
+html.sr-off { overflow: hidden; }
+html.sr-off .splash, .splash.is-leaving { display: flex; }
+.splash.is-leaving { opacity: 0; pointer-events: none; transition: opacity .4s ease-out; }
+/* the hero waits behind the screen, so its neon flickers on once the switch is on */
+html.sr-off .hero__img img, html.sr-off .hero__content, html.sr-off .hero__scroll { animation-play-state: paused; }
+.splash__fiction { flex: none; }
+.splash__stage {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(1.75rem, 6svh, 4.5rem);
+  padding: var(--space-2) var(--gutter) calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+}
+.splash__logo {
+  flex: none; width: min(84vw, 34rem); height: auto; aspect-ratio: 2082 / 486;
+  fill: #fff;
+  transition: filter .35s ease-out;
+}
+.splash.is-on .splash__logo { filter: drop-shadow(0 0 .45rem rgba(255, 255, 255, .8)) drop-shadow(0 0 1.6rem rgba(255, 255, 255, .5)); }
+.switch {
+  flex: none; display: block; padding: 0; border: 0; border-radius: 1.6rem;
+  background: none;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.switch:focus-visible { outline: 3px solid #fff; outline-offset: 8px; }
+.switch__svg {
+  height: clamp(10.5rem, 42svh, 22rem); width: auto; aspect-ratio: 160 / 296;
+  overflow: visible;
+  filter: drop-shadow(0 .55rem .8rem rgba(var(--ink-rgb), .38)) drop-shadow(0 .1rem .15rem rgba(var(--ink-rgb), .3));
+}
+.switch__label text {
+  font-family: var(--font-head); font-size: 27px; letter-spacing: .14em; text-anchor: middle;
+  fill: var(--ink);
+}
+.switch__label .switch__emboss { fill: #fff; }
+.switch__label { transition: opacity .2s ease-out; }
+.switch__label--on, .splash.is-on .switch__label--off { opacity: .3; }
+.splash.is-on .switch__label--on { opacity: 1; }
+/* phones held sideways: logo and switch side by side */
+@media (orientation: landscape) and (max-height: 34em) {
+  .splash__stage { flex-direction: row; gap: clamp(2rem, 7vw, 5rem); }
+  .splash__logo { width: min(46vw, 30rem); }
+  .switch__svg { height: clamp(9rem, 60svh, 17rem); }
+}
+@media (forced-colors: active) {
+  .splash { background: Canvas; }
+  .splash__logo { fill: CanvasText; }
+}
+
 /* ---------- Motion & print ---------- */
 @media (prefers-reduced-motion: reduce) {
   html, html.is-ready { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 @media print {
-  .site-header, .overlay, .quick, .bottombar, .map, .hero__scroll, .carta__tabs, .toast, .consent, .footer__consent { display: none !important; }
+  .site-header, .overlay, .splash, .quick, .bottombar, .map, .hero__scroll, .carta__tabs, .toast, .consent, .footer__consent { display: none !important; }
   .hero { height: auto; min-height: 0; }
   .menu-sec[hidden] { display: block !important; }
 }

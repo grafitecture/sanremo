@@ -23,12 +23,21 @@
 <link rel="preload" href="/assets/fonts/league-gothic-semicondensed.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/playwrite-it-trad-light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.css?v=0bc88df545">
+<link rel="stylesheet" href="/assets/css/main.css?v=ddb1dd48eb">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
+<script>
+  /* Startbildschirm mit dem Schalter (assets/js/schalter.js): vor dem ersten Rendern zeigen, nur wo Module laufen.
+     Läuft schalter.js nicht, gibt sich die Seite beim Laden selbst frei. */
+  (function (d) {
+    if (!('noModule' in HTMLScriptElement.prototype)) return;
+    d.classList.add('sr-off');
+    window.addEventListener('load', function () { if (!window.srSwitch) d.classList.remove('sr-off'); });
+  })(document.documentElement);
+</script>
 <title data-i18n="meta.title">San Remo – Ristorante a Mannheim dal 1977 | Italienisches Restaurant im Jungbusch</title>
 <meta name="description" data-i18n-attr="content:meta.desc" content="Italienisches Restaurant im Mannheimer Jungbusch seit 1977: Pizza, Pasta und ligurische Spezialitäten, Do, Fr und Sa ab 18 Uhr. Das San Remo ist zu vermieten – Räume und Konzept ansehen.">
 <meta name="robots" content="noindex, follow">
@@ -85,6 +94,100 @@
   <symbol id="t-bevande" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10c0 5-2.1 8.6-5 8.6S7 8 7 3z"/><path d="M7.5 6.6h9M12 11.6V20.5M8.2 20.7h7.6"/></symbol>
   <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3.5" width="15" height="15" rx="2.5"/><path d="M4.5 11h15M4.5 7h15M7.5 18.5V21M16.5 18.5V21"/><circle cx="8" cy="14.8" r=".7" fill="currentColor"/><circle cx="16" cy="14.8" r=".7" fill="currentColor"/></symbol>
 </svg>
+
+<!-- Startbildschirm (nur Startseite): Logo weiß auf Rot und ein alter Kippschalter auf SPENTO. Einschalten zeigt die Seite.
+     Sichtbar nur mit der Klasse sr-off an <html> (Skript im <head> von index.html), Logik in assets/js/schalter.js -->
+<div class="splash" data-splash role="dialog" aria-modal="true" aria-label="San Remo">
+  <div class="fiction fiction--top splash__fiction" aria-hidden="true">
+    <p class="fiction__text" data-i18n="fiction.note">Diese Webseite ist rein fiktiv und dient nur zur Anschauung. Herausgegeben von der Grafitecture GmbH.</p>
+  </div>
+  <div class="splash__stage">
+    <svg class="splash__logo" viewBox="0 0 2082 486" aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+    <button class="switch" type="button" role="switch" aria-checked="false" data-switch data-i18n-attr="aria-label:switch.label" aria-label="Website einschalten">
+      <svg class="switch__svg" viewBox="0 0 160 296" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="sw-plate" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FFFDF7"/>
+            <stop offset=".55" stop-color="#F2EADB"/>
+            <stop offset="1" stop-color="#D9CDB6"/>
+          </linearGradient>
+          <linearGradient id="sw-bevel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset=".5" stop-color="#FFFFFF" stop-opacity=".2"/>
+            <stop offset="1" stop-color="#8C7D63" stop-opacity=".7"/>
+          </linearGradient>
+          <radialGradient id="sw-brass" cx=".35" cy=".3" r=".85">
+            <stop offset="0" stop-color="#F7E6B0"/>
+            <stop offset=".45" stop-color="#C79E4C"/>
+            <stop offset="1" stop-color="#6E501C"/>
+          </radialGradient>
+          <linearGradient id="sw-nickel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset=".35" stop-color="#CDD1CF"/>
+            <stop offset=".7" stop-color="#7C8381"/>
+            <stop offset="1" stop-color="#C9CDCB"/>
+          </linearGradient>
+          <linearGradient id="sw-nickel-in" x1="1" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#F4F6F5"/>
+            <stop offset=".5" stop-color="#A3A9A7"/>
+            <stop offset="1" stop-color="#5D6462"/>
+          </linearGradient>
+          <linearGradient id="sw-stem" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#010D0A"/>
+            <stop offset=".28" stop-color="#3F5F57"/>
+            <stop offset=".46" stop-color="#0D342C"/>
+            <stop offset="1" stop-color="#010D0A"/>
+          </linearGradient>
+          <radialGradient id="sw-knob" cx=".36" cy=".3" r=".78">
+            <stop offset="0" stop-color="#7C9A92"/>
+            <stop offset=".22" stop-color="#1A4A41"/>
+            <stop offset=".68" stop-color="#042720"/>
+            <stop offset="1" stop-color="#010F0C"/>
+          </radialGradient>
+          <filter id="sw-soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.8"/></filter>
+        </defs>
+
+        <!-- Porzellanplatte -->
+        <rect x="8" y="8" width="144" height="280" rx="22" fill="url(#sw-plate)"/>
+        <rect x="9.5" y="9.5" width="141" height="277" rx="20.5" fill="none" stroke="url(#sw-bevel)" stroke-width="3"/>
+        <rect x="8" y="8" width="144" height="280" rx="22" fill="none" stroke="#7D6F57" stroke-opacity=".45" stroke-width="1"/>
+
+        <!-- Messingschrauben -->
+        <g>
+          <circle cx="80" cy="28" r="7.5" fill="url(#sw-brass)" stroke="#5E4416" stroke-opacity=".6" stroke-width=".8"/>
+          <path d="M74.2 28h11.6" stroke="#4A3410" stroke-width="2" stroke-linecap="round" transform="rotate(32 80 28)"/>
+          <circle cx="80" cy="268" r="7.5" fill="url(#sw-brass)" stroke="#5E4416" stroke-opacity=".6" stroke-width=".8"/>
+          <path d="M74.2 268h11.6" stroke="#4A3410" stroke-width="2" stroke-linecap="round" transform="rotate(-24 80 268)"/>
+        </g>
+
+        <!-- Gravur: oben ACCESO, unten SPENTO (die gerade gültige Stellung ist kräftig) -->
+        <g class="switch__label switch__label--on" lang="it">
+          <text class="switch__emboss" x="81.5" y="73">ACCESO</text>
+          <text x="81.5" y="72">ACCESO</text>
+        </g>
+        <g class="switch__label switch__label--off" lang="it">
+          <text class="switch__emboss" x="81.5" y="245">SPENTO</text>
+          <text x="81.5" y="244">SPENTO</text>
+        </g>
+
+        <!-- Schatten des Hebels auf der Platte -->
+        <g fill="#2B2214" opacity=".42" filter="url(#sw-soft)">
+          <polygon data-lever="shadow-stem" points="73.50,148 86.50,148 102.55,216.82 94.15,216.82"/>
+          <circle data-lever="shadow-knob" cx="98.35" cy="216.82" r="11.5"/>
+        </g>
+
+        <!-- Sechskantmutter und Buchse -->
+        <polygon points="105,148 92.5,169.65 67.5,169.65 55,148 67.5,126.35 92.5,126.35" fill="url(#sw-nickel)" stroke="#4E5553" stroke-opacity=".7" stroke-width=".8" stroke-linejoin="round"/>
+        <circle cx="80" cy="148" r="16" fill="url(#sw-nickel-in)" stroke="#4E5553" stroke-opacity=".5" stroke-width=".6"/>
+        <circle cx="80" cy="148" r="8.5" fill="#07120F"/>
+
+        <!-- Hebel aus Bakelit (schalter.js rechnet Länge und Größe je nach Winkel neu) -->
+        <polygon data-lever="stem" points="73.50,148 86.50,148 85.12,196.92 74.88,196.92" fill="url(#sw-stem)"/>
+        <circle data-lever="knob" cx="80" cy="196.92" r="14.01" fill="url(#sw-knob)" stroke="#010A08" stroke-opacity=".5" stroke-width=".7"/>
+      </svg>
+    </button>
+  </div>
+</div>
 
 <aside class="fiction fiction--top" data-fiction data-i18n-attr="aria-label:a11y.fiction" aria-label="Hinweis">
   <p class="fiction__text" data-i18n="fiction.note">Diese Webseite ist rein fiktiv und dient nur zur Anschauung. Herausgegeben von der Grafitecture GmbH.</p>
@@ -756,6 +859,6 @@
   <button class="lightbox__btn lightbox__btn--close" type="button" data-lightbox-close><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only" data-i18n="a11y.close">Schließen</span></button>
 </dialog>
 
-<script type="module" src="/assets/js/main.js?v=1cacb15e10"></script>
+<script type="module" src="/assets/js/main.js?v=c4d0b129c4"></script>
 </body>
 </html>
